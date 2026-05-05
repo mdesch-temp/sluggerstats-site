@@ -36,6 +36,51 @@
     h4 { font-size: clamp(17px, 2.2vw, 20px); margin-bottom: 10px; }
     .source { margin-top: 6px; color: var(--muted); font-size: 14px; overflow-wrap: anywhere; }
     main { padding: 18px clamp(12px, 3vw, 36px) 36px; }
+    .summary-panel {
+      background: #ffffff;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      margin-bottom: 18px;
+      overflow: hidden;
+    }
+    .summary-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      padding: 18px;
+      border-bottom: 1px solid var(--line);
+    }
+    .summary-header span {
+      color: var(--muted);
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .summary-table-wrap { overflow-x: auto; }
+    .summary-table {
+      width: 100%;
+      min-width: 760px;
+      border-collapse: collapse;
+      font-size: 15px;
+    }
+    .summary-table th,
+    .summary-table td {
+      padding: 12px 14px;
+      border-bottom: 1px solid #dfe5ee;
+      text-align: left;
+      vertical-align: middle;
+    }
+    .summary-table th {
+      background: #f7f9fc;
+      color: var(--muted);
+      font-size: 12px;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+    .summary-table tbody tr:last-child td { border-bottom: 0; }
+    .summary-muted { color: var(--muted); }
+    .edge-pos { color: var(--home); font-weight: 700; }
+    .edge-neg { color: var(--away); font-weight: 700; }
     .game-section {
       background: #ffffff;
       border: 1px solid var(--line);
@@ -185,6 +230,21 @@
       body { font-size: 18px; }
       header { padding: 20px 14px; }
       main { padding: 12px 10px 28px; }
+      .summary-panel { border-radius: 6px; margin-bottom: 14px; }
+      .summary-header {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 8px;
+        padding: 16px;
+      }
+      .summary-table {
+        min-width: 680px;
+        font-size: 16px;
+      }
+      .summary-table th,
+      .summary-table td {
+        padding: 12px 10px;
+      }
       .game-section { border-radius: 6px; margin-bottom: 14px; }
       .game-header {
         align-items: flex-start;
@@ -237,6 +297,127 @@
     <p class="source">Source: predictions\may4_test_site_polymarket.csv</p>
   </header>
   <main>
+    <section class="summary-panel">
+      <div class="summary-header">
+        <div>
+          <p class="eyebrow">Slate Summary</p>
+          <h2>Model vs Polymarket</h2>
+        </div>
+        <span>12 games</span>
+      </div>
+      <div class="summary-table-wrap">
+        <table class="summary-table">
+          <thead>
+            <tr>
+              <th>Game</th>
+              <th>Projected Winner</th>
+              <th>Polymarket</th>
+              <th>Model Edge</th>
+              <th>Likely Score</th>
+            </tr>
+          </thead>
+          <tbody>
+                <tr>
+                  <td><strong>CIN</strong> at <strong>CHN</strong></td>
+                  <td>CHN <span class="summary-muted">68.2%</span></td>
+                  <td><span class="summary-muted">No market</span></td>
+                  <td><span class="summary-muted">--</span></td>
+                  <td>4-6</td>
+                </tr>
+                
+                <tr>
+                  <td><strong>CHA</strong> at <strong>ANA</strong></td>
+                  <td>ANA <span class="summary-muted">63.9%</span></td>
+                  <td><span class="summary-muted">No market</span></td>
+                  <td><span class="summary-muted">--</span></td>
+                  <td>4-5</td>
+                </tr>
+                
+                <tr>
+                  <td><strong>BOS</strong> at <strong>DET</strong></td>
+                  <td>DET <span class="summary-muted">63.6%</span></td>
+                  <td><span class="summary-muted">No market</span></td>
+                  <td><span class="summary-muted">--</span></td>
+                  <td>5-6</td>
+                </tr>
+                
+                <tr>
+                  <td><strong>LAN</strong> at <strong>HOU</strong></td>
+                  <td>LAN <span class="summary-muted">59.9%</span></td>
+                  <td><span class="summary-muted">No market</span></td>
+                  <td><span class="summary-muted">--</span></td>
+                  <td>6-4</td>
+                </tr>
+                
+                <tr>
+                  <td><strong>BAL</strong> at <strong>NYA</strong></td>
+                  <td>NYA <span class="summary-muted">59.8%</span></td>
+                  <td><span class="summary-muted">No market</span></td>
+                  <td><span class="summary-muted">--</span></td>
+                  <td>4-5</td>
+                </tr>
+                
+                <tr>
+                  <td><strong>ATL</strong> at <strong>SEA</strong></td>
+                  <td>SEA <span class="summary-muted">55.4%</span></td>
+                  <td><span class="summary-muted">No market</span></td>
+                  <td><span class="summary-muted">--</span></td>
+                  <td>4-5</td>
+                </tr>
+                
+                <tr>
+                  <td><strong>SDN</strong> at <strong>SFN</strong></td>
+                  <td>SFN <span class="summary-muted">53.7%</span></td>
+                  <td><span class="summary-muted">No market</span></td>
+                  <td><span class="summary-muted">--</span></td>
+                  <td>5-6</td>
+                </tr>
+                
+                <tr>
+                  <td><strong>TOR</strong> at <strong>TBA</strong></td>
+                  <td>TBA <span class="summary-muted">53.7%</span></td>
+                  <td><span class="summary-muted">No market</span></td>
+                  <td><span class="summary-muted">--</span></td>
+                  <td>4-5</td>
+                </tr>
+                
+                <tr>
+                  <td><strong>NYN</strong> at <strong>COL</strong></td>
+                  <td>COL <span class="summary-muted">53.6%</span></td>
+                  <td><span class="summary-muted">No market</span></td>
+                  <td><span class="summary-muted">--</span></td>
+                  <td>6-7</td>
+                </tr>
+                
+                <tr>
+                  <td><strong>CLE</strong> at <strong>KCA</strong></td>
+                  <td>KCA <span class="summary-muted">53.2%</span></td>
+                  <td><span class="summary-muted">No market</span></td>
+                  <td><span class="summary-muted">--</span></td>
+                  <td>5-6</td>
+                </tr>
+                
+                <tr>
+                  <td><strong>MIL</strong> at <strong>SLN</strong></td>
+                  <td>MIL <span class="summary-muted">52.1%</span></td>
+                  <td><span class="summary-muted">No market</span></td>
+                  <td><span class="summary-muted">--</span></td>
+                  <td>5-4</td>
+                </tr>
+                
+                <tr>
+                  <td><strong>PHI</strong> at <strong>MIA</strong></td>
+                  <td>PHI <span class="summary-muted">52.1%</span></td>
+                  <td><span class="summary-muted">No market</span></td>
+                  <td><span class="summary-muted">--</span></td>
+                  <td>5-4</td>
+                </tr>
+                </tbody>
+        </table>
+      </div>
+    </section>
+    
+
     <section class="game-section">
       <div class="game-header">
         <div>
