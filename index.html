@@ -108,7 +108,7 @@
     }
     .win-panel {
       display: grid;
-      grid-template-columns: 1fr auto 1fr;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       align-items: center;
       gap: 18px;
       padding: 16px 18px;
@@ -119,9 +119,6 @@
     .bar-fill { height: 100%; }
     .bar-fill.away { background: var(--away); }
     .bar-fill.home { background: var(--home); }
-    .winner { text-align: center; min-width: 130px; }
-    .winner span { display: block; color: var(--muted); font-size: 13px; }
-    .winner strong { display: block; margin-top: 3px; font-size: 24px; }
     .market-panel {
       padding: 14px 18px;
       border-bottom: 1px solid var(--line);
@@ -223,7 +220,6 @@
       .win-panel, .dashboard-grid, .batter-grid { grid-template-columns: 1fr; }
       .market-grid { grid-template-columns: 1fr; }
       .panel { border-right: 0; border-bottom: 1px solid var(--line); }
-      .winner { text-align: left; }
       .stat-grid { grid-template-columns: 1fr; }
     }
     @media (max-width: 640px) {
@@ -237,13 +233,46 @@
         gap: 8px;
         padding: 16px;
       }
+      .summary-table-wrap { overflow-x: visible; }
       .summary-table {
-        min-width: 680px;
+        min-width: 0;
         font-size: 16px;
       }
+      .summary-table,
+      .summary-table thead,
+      .summary-table tbody,
+      .summary-table tr,
       .summary-table th,
       .summary-table td {
-        padding: 12px 10px;
+        display: block;
+      }
+      .summary-table thead { display: none; }
+      .summary-table tbody {
+        display: grid;
+        gap: 10px;
+        padding: 12px;
+      }
+      .summary-table tr {
+        border: 1px solid var(--line);
+        border-radius: 6px;
+        background: #ffffff;
+        overflow: hidden;
+      }
+      .summary-table td {
+        display: grid;
+        grid-template-columns: 118px minmax(0, 1fr);
+        gap: 10px;
+        padding: 10px 12px;
+        border-bottom: 1px solid #edf1f6;
+      }
+      .summary-table td:last-child { border-bottom: 0; }
+      .summary-table td::before {
+        content: attr(data-label);
+        color: var(--muted);
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: .04em;
+        text-transform: uppercase;
       }
       .game-section { border-radius: 6px; margin-bottom: 14px; }
       .game-header {
@@ -254,7 +283,6 @@
       .score-chip { width: 100%; text-align: center; }
       .win-panel { padding: 16px; gap: 14px; }
       .team-line { font-size: 18px; }
-      .winner strong { font-size: 28px; }
       .market-title {
         flex-direction: column;
         gap: 4px;
@@ -318,99 +346,99 @@
           </thead>
           <tbody>
                 <tr>
-                  <td><strong>Cincinnati Reds</strong> at <strong>Chicago Cubs</strong></td>
-                  <td>Chicago Cubs <span class="summary-muted">68.2%</span></td>
-                  <td><span class="summary-muted">No market</span></td>
-                  <td><span class="summary-muted">--</span></td>
-                  <td>4-6</td>
+                  <td data-label="Game"><strong>Cincinnati Reds</strong> at <strong>Chicago Cubs</strong></td>
+                  <td data-label="Projected Winner">Chicago Cubs <span class="summary-muted">68.2%</span></td>
+                  <td data-label="Polymarket"><span class="summary-muted">No market</span></td>
+                  <td data-label="Model Edge"><span class="summary-muted">--</span></td>
+                  <td data-label="Likely Score">4-6</td>
                 </tr>
                 
                 <tr>
-                  <td><strong>Chicago White Sox</strong> at <strong>Los Angeles Angels</strong></td>
-                  <td>Los Angeles Angels <span class="summary-muted">63.9%</span></td>
-                  <td><span class="summary-muted">No market</span></td>
-                  <td><span class="summary-muted">--</span></td>
-                  <td>4-5</td>
+                  <td data-label="Game"><strong>Chicago White Sox</strong> at <strong>Los Angeles Angels</strong></td>
+                  <td data-label="Projected Winner">Los Angeles Angels <span class="summary-muted">63.9%</span></td>
+                  <td data-label="Polymarket"><span class="summary-muted">No market</span></td>
+                  <td data-label="Model Edge"><span class="summary-muted">--</span></td>
+                  <td data-label="Likely Score">4-5</td>
                 </tr>
                 
                 <tr>
-                  <td><strong>Boston Red Sox</strong> at <strong>Detroit Tigers</strong></td>
-                  <td>Detroit Tigers <span class="summary-muted">63.6%</span></td>
-                  <td><span class="summary-muted">No market</span></td>
-                  <td><span class="summary-muted">--</span></td>
-                  <td>5-6</td>
+                  <td data-label="Game"><strong>Boston Red Sox</strong> at <strong>Detroit Tigers</strong></td>
+                  <td data-label="Projected Winner">Detroit Tigers <span class="summary-muted">63.6%</span></td>
+                  <td data-label="Polymarket"><span class="summary-muted">No market</span></td>
+                  <td data-label="Model Edge"><span class="summary-muted">--</span></td>
+                  <td data-label="Likely Score">5-6</td>
                 </tr>
                 
                 <tr>
-                  <td><strong>Los Angeles Dodgers</strong> at <strong>Houston Astros</strong></td>
-                  <td>Los Angeles Dodgers <span class="summary-muted">59.9%</span></td>
-                  <td><span class="summary-muted">No market</span></td>
-                  <td><span class="summary-muted">--</span></td>
-                  <td>6-4</td>
+                  <td data-label="Game"><strong>Los Angeles Dodgers</strong> at <strong>Houston Astros</strong></td>
+                  <td data-label="Projected Winner">Los Angeles Dodgers <span class="summary-muted">59.9%</span></td>
+                  <td data-label="Polymarket"><span class="summary-muted">No market</span></td>
+                  <td data-label="Model Edge"><span class="summary-muted">--</span></td>
+                  <td data-label="Likely Score">6-4</td>
                 </tr>
                 
                 <tr>
-                  <td><strong>Baltimore Orioles</strong> at <strong>New York Yankees</strong></td>
-                  <td>New York Yankees <span class="summary-muted">59.8%</span></td>
-                  <td><span class="summary-muted">No market</span></td>
-                  <td><span class="summary-muted">--</span></td>
-                  <td>4-5</td>
+                  <td data-label="Game"><strong>Baltimore Orioles</strong> at <strong>New York Yankees</strong></td>
+                  <td data-label="Projected Winner">New York Yankees <span class="summary-muted">59.8%</span></td>
+                  <td data-label="Polymarket"><span class="summary-muted">No market</span></td>
+                  <td data-label="Model Edge"><span class="summary-muted">--</span></td>
+                  <td data-label="Likely Score">4-5</td>
                 </tr>
                 
                 <tr>
-                  <td><strong>Atlanta Braves</strong> at <strong>Seattle Mariners</strong></td>
-                  <td>Seattle Mariners <span class="summary-muted">55.4%</span></td>
-                  <td><span class="summary-muted">No market</span></td>
-                  <td><span class="summary-muted">--</span></td>
-                  <td>4-5</td>
+                  <td data-label="Game"><strong>Atlanta Braves</strong> at <strong>Seattle Mariners</strong></td>
+                  <td data-label="Projected Winner">Seattle Mariners <span class="summary-muted">55.4%</span></td>
+                  <td data-label="Polymarket"><span class="summary-muted">No market</span></td>
+                  <td data-label="Model Edge"><span class="summary-muted">--</span></td>
+                  <td data-label="Likely Score">4-5</td>
                 </tr>
                 
                 <tr>
-                  <td><strong>San Diego Padres</strong> at <strong>San Francisco Giants</strong></td>
-                  <td>San Francisco Giants <span class="summary-muted">53.7%</span></td>
-                  <td><span class="summary-muted">No market</span></td>
-                  <td><span class="summary-muted">--</span></td>
-                  <td>5-6</td>
+                  <td data-label="Game"><strong>San Diego Padres</strong> at <strong>San Francisco Giants</strong></td>
+                  <td data-label="Projected Winner">San Francisco Giants <span class="summary-muted">53.7%</span></td>
+                  <td data-label="Polymarket"><span class="summary-muted">No market</span></td>
+                  <td data-label="Model Edge"><span class="summary-muted">--</span></td>
+                  <td data-label="Likely Score">5-6</td>
                 </tr>
                 
                 <tr>
-                  <td><strong>Toronto Blue Jays</strong> at <strong>Tampa Bay Rays</strong></td>
-                  <td>Tampa Bay Rays <span class="summary-muted">53.7%</span></td>
-                  <td><span class="summary-muted">No market</span></td>
-                  <td><span class="summary-muted">--</span></td>
-                  <td>4-5</td>
+                  <td data-label="Game"><strong>Toronto Blue Jays</strong> at <strong>Tampa Bay Rays</strong></td>
+                  <td data-label="Projected Winner">Tampa Bay Rays <span class="summary-muted">53.7%</span></td>
+                  <td data-label="Polymarket"><span class="summary-muted">No market</span></td>
+                  <td data-label="Model Edge"><span class="summary-muted">--</span></td>
+                  <td data-label="Likely Score">4-5</td>
                 </tr>
                 
                 <tr>
-                  <td><strong>New York Mets</strong> at <strong>Colorado Rockies</strong></td>
-                  <td>Colorado Rockies <span class="summary-muted">53.6%</span></td>
-                  <td><span class="summary-muted">No market</span></td>
-                  <td><span class="summary-muted">--</span></td>
-                  <td>6-7</td>
+                  <td data-label="Game"><strong>New York Mets</strong> at <strong>Colorado Rockies</strong></td>
+                  <td data-label="Projected Winner">Colorado Rockies <span class="summary-muted">53.6%</span></td>
+                  <td data-label="Polymarket"><span class="summary-muted">No market</span></td>
+                  <td data-label="Model Edge"><span class="summary-muted">--</span></td>
+                  <td data-label="Likely Score">6-7</td>
                 </tr>
                 
                 <tr>
-                  <td><strong>Cleveland Guardians</strong> at <strong>Kansas City Royals</strong></td>
-                  <td>Kansas City Royals <span class="summary-muted">53.2%</span></td>
-                  <td><span class="summary-muted">No market</span></td>
-                  <td><span class="summary-muted">--</span></td>
-                  <td>5-6</td>
+                  <td data-label="Game"><strong>Cleveland Guardians</strong> at <strong>Kansas City Royals</strong></td>
+                  <td data-label="Projected Winner">Kansas City Royals <span class="summary-muted">53.2%</span></td>
+                  <td data-label="Polymarket"><span class="summary-muted">No market</span></td>
+                  <td data-label="Model Edge"><span class="summary-muted">--</span></td>
+                  <td data-label="Likely Score">5-6</td>
                 </tr>
                 
                 <tr>
-                  <td><strong>Milwaukee Brewers</strong> at <strong>St. Louis Cardinals</strong></td>
-                  <td>Milwaukee Brewers <span class="summary-muted">52.1%</span></td>
-                  <td><span class="summary-muted">No market</span></td>
-                  <td><span class="summary-muted">--</span></td>
-                  <td>5-4</td>
+                  <td data-label="Game"><strong>Milwaukee Brewers</strong> at <strong>St. Louis Cardinals</strong></td>
+                  <td data-label="Projected Winner">Milwaukee Brewers <span class="summary-muted">52.1%</span></td>
+                  <td data-label="Polymarket"><span class="summary-muted">No market</span></td>
+                  <td data-label="Model Edge"><span class="summary-muted">--</span></td>
+                  <td data-label="Likely Score">5-4</td>
                 </tr>
                 
                 <tr>
-                  <td><strong>Philadelphia Phillies</strong> at <strong>Miami Marlins</strong></td>
-                  <td>Philadelphia Phillies <span class="summary-muted">52.1%</span></td>
-                  <td><span class="summary-muted">No market</span></td>
-                  <td><span class="summary-muted">--</span></td>
-                  <td>5-4</td>
+                  <td data-label="Game"><strong>Philadelphia Phillies</strong> at <strong>Miami Marlins</strong></td>
+                  <td data-label="Projected Winner">Philadelphia Phillies <span class="summary-muted">52.1%</span></td>
+                  <td data-label="Polymarket"><span class="summary-muted">No market</span></td>
+                  <td data-label="Model Edge"><span class="summary-muted">--</span></td>
+                  <td data-label="Likely Score">5-4</td>
                 </tr>
                 </tbody>
         </table>
@@ -431,10 +459,6 @@
       <div class="team-prob">
         <div class="team-line"><strong>New York Mets</strong><span>46.4%</span></div>
         <div class="bar"><div class="bar-fill away" style="width:46.4%"></div></div>
-      </div>
-      <div class="winner">
-        <span>Projected winner</span>
-        <strong>Colorado Rockies</strong>
       </div>
       <div class="team-prob">
         <div class="team-line"><strong>Colorado Rockies</strong><span>53.6%</span></div>
@@ -936,10 +960,6 @@
         <div class="team-line"><strong>Boston Red Sox</strong><span>36.4%</span></div>
         <div class="bar"><div class="bar-fill away" style="width:36.4%"></div></div>
       </div>
-      <div class="winner">
-        <span>Projected winner</span>
-        <strong>Detroit Tigers</strong>
-      </div>
       <div class="team-prob">
         <div class="team-line"><strong>Detroit Tigers</strong><span>63.6%</span></div>
         <div class="bar"><div class="bar-fill home" style="width:63.6%"></div></div>
@@ -1439,10 +1459,6 @@
       <div class="team-prob">
         <div class="team-line"><strong>Philadelphia Phillies</strong><span>52.1%</span></div>
         <div class="bar"><div class="bar-fill away" style="width:52.1%"></div></div>
-      </div>
-      <div class="winner">
-        <span>Projected winner</span>
-        <strong>Philadelphia Phillies</strong>
       </div>
       <div class="team-prob">
         <div class="team-line"><strong>Miami Marlins</strong><span>47.9%</span></div>
@@ -1944,10 +1960,6 @@
         <div class="team-line"><strong>Toronto Blue Jays</strong><span>46.3%</span></div>
         <div class="bar"><div class="bar-fill away" style="width:46.3%"></div></div>
       </div>
-      <div class="winner">
-        <span>Projected winner</span>
-        <strong>Tampa Bay Rays</strong>
-      </div>
       <div class="team-prob">
         <div class="team-line"><strong>Tampa Bay Rays</strong><span>53.7%</span></div>
         <div class="bar"><div class="bar-fill home" style="width:53.7%"></div></div>
@@ -2447,10 +2459,6 @@
       <div class="team-prob">
         <div class="team-line"><strong>Baltimore Orioles</strong><span>40.2%</span></div>
         <div class="bar"><div class="bar-fill away" style="width:40.2%"></div></div>
-      </div>
-      <div class="winner">
-        <span>Projected winner</span>
-        <strong>New York Yankees</strong>
       </div>
       <div class="team-prob">
         <div class="team-line"><strong>New York Yankees</strong><span>59.8%</span></div>
@@ -2952,10 +2960,6 @@
         <div class="team-line"><strong>Cincinnati Reds</strong><span>31.8%</span></div>
         <div class="bar"><div class="bar-fill away" style="width:31.8%"></div></div>
       </div>
-      <div class="winner">
-        <span>Projected winner</span>
-        <strong>Chicago Cubs</strong>
-      </div>
       <div class="team-prob">
         <div class="team-line"><strong>Chicago Cubs</strong><span>68.2%</span></div>
         <div class="bar"><div class="bar-fill home" style="width:68.2%"></div></div>
@@ -3455,10 +3459,6 @@
       <div class="team-prob">
         <div class="team-line"><strong>Cleveland Guardians</strong><span>46.8%</span></div>
         <div class="bar"><div class="bar-fill away" style="width:46.8%"></div></div>
-      </div>
-      <div class="winner">
-        <span>Projected winner</span>
-        <strong>Kansas City Royals</strong>
       </div>
       <div class="team-prob">
         <div class="team-line"><strong>Kansas City Royals</strong><span>53.2%</span></div>
@@ -3960,10 +3960,6 @@
         <div class="team-line"><strong>Milwaukee Brewers</strong><span>52.1%</span></div>
         <div class="bar"><div class="bar-fill away" style="width:52.1%"></div></div>
       </div>
-      <div class="winner">
-        <span>Projected winner</span>
-        <strong>Milwaukee Brewers</strong>
-      </div>
       <div class="team-prob">
         <div class="team-line"><strong>St. Louis Cardinals</strong><span>47.9%</span></div>
         <div class="bar"><div class="bar-fill home" style="width:47.9%"></div></div>
@@ -4463,10 +4459,6 @@
       <div class="team-prob">
         <div class="team-line"><strong>Los Angeles Dodgers</strong><span>59.9%</span></div>
         <div class="bar"><div class="bar-fill away" style="width:59.9%"></div></div>
-      </div>
-      <div class="winner">
-        <span>Projected winner</span>
-        <strong>Los Angeles Dodgers</strong>
       </div>
       <div class="team-prob">
         <div class="team-line"><strong>Houston Astros</strong><span>40.1%</span></div>
@@ -4968,10 +4960,6 @@
         <div class="team-line"><strong>Chicago White Sox</strong><span>36.1%</span></div>
         <div class="bar"><div class="bar-fill away" style="width:36.1%"></div></div>
       </div>
-      <div class="winner">
-        <span>Projected winner</span>
-        <strong>Los Angeles Angels</strong>
-      </div>
       <div class="team-prob">
         <div class="team-line"><strong>Los Angeles Angels</strong><span>63.9%</span></div>
         <div class="bar"><div class="bar-fill home" style="width:63.9%"></div></div>
@@ -5472,10 +5460,6 @@
         <div class="team-line"><strong>Atlanta Braves</strong><span>44.6%</span></div>
         <div class="bar"><div class="bar-fill away" style="width:44.6%"></div></div>
       </div>
-      <div class="winner">
-        <span>Projected winner</span>
-        <strong>Seattle Mariners</strong>
-      </div>
       <div class="team-prob">
         <div class="team-line"><strong>Seattle Mariners</strong><span>55.4%</span></div>
         <div class="bar"><div class="bar-fill home" style="width:55.4%"></div></div>
@@ -5975,10 +5959,6 @@
       <div class="team-prob">
         <div class="team-line"><strong>San Diego Padres</strong><span>46.3%</span></div>
         <div class="bar"><div class="bar-fill away" style="width:46.3%"></div></div>
-      </div>
-      <div class="winner">
-        <span>Projected winner</span>
-        <strong>San Francisco Giants</strong>
       </div>
       <div class="team-prob">
         <div class="team-line"><strong>San Francisco Giants</strong><span>53.7%</span></div>
