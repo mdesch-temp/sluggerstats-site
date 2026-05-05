@@ -125,44 +125,23 @@
     .win-panel {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      align-items: center;
+      align-items: end;
       gap: 18px;
       padding: 16px 18px;
       border-bottom: 1px solid var(--line);
     }
-    .team-line { display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 16px; }
+    .team-line { display: flex; justify-content: space-between; gap: 12px; font-size: 16px; }
+    .team-line-right { text-align: right; }
     .bar { height: 16px; background: #e8edf3; border-radius: 999px; overflow: hidden; }
+    .matchup-bar {
+      grid-column: 1 / -1;
+      display: flex;
+      gap: 0;
+      background: #e8edf3;
+    }
     .bar-fill { height: 100%; }
     .bar-fill.away { background: var(--away); }
     .bar-fill.home { background: var(--home); }
-    .market-panel {
-      padding: 14px 18px;
-      border-bottom: 1px solid var(--line);
-      background: #fbfcfe;
-    }
-    .market-title {
-      display: flex;
-      justify-content: space-between;
-      gap: 16px;
-      margin-bottom: 10px;
-    }
-    .market-title span, .market-title a {
-      color: var(--muted);
-      font-size: 13px;
-      overflow-wrap: anywhere;
-    }
-    .market-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
-    .market-card {
-      border: 1px solid var(--line);
-      border-radius: 6px;
-      padding: 10px 12px;
-      background: #ffffff;
-    }
-    .market-card div { display: flex; justify-content: space-between; gap: 10px; }
-    .market-card span { color: var(--muted); }
-    .market-card em { display: block; margin-top: 6px; font-style: normal; font-weight: 700; }
-    .market-card em.positive { color: var(--home); }
-    .market-card em.negative { color: var(--away); }
     .dashboard-grid {
       display: grid;
       grid-template-columns: minmax(0, 1.1fr) minmax(280px, .9fr);
@@ -233,8 +212,7 @@
     .stat-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
     .muted { color: var(--muted); }
     @media (max-width: 900px) {
-      .win-panel, .dashboard-grid, .batter-grid { grid-template-columns: 1fr; }
-      .market-grid { grid-template-columns: 1fr; }
+      .dashboard-grid, .batter-grid { grid-template-columns: 1fr; }
       .panel { border-right: 0; border-bottom: 1px solid var(--line); }
       .stat-grid { grid-template-columns: 1fr; }
     }
@@ -297,17 +275,9 @@
         padding: 16px;
       }
       .score-chip { width: 100%; text-align: center; }
-      .win-panel { padding: 16px; gap: 14px; }
+      .win-panel { padding: 16px; gap: 10px; }
       .team-line { font-size: 18px; }
-      .market-title {
-        flex-direction: column;
-        gap: 4px;
-      }
-      .market-card div {
-        align-items: flex-start;
-        flex-direction: column;
-        gap: 2px;
-      }
+      .team-line-right { text-align: left; }
       .panel { padding: 16px; }
       .heatmap { min-width: 540px; font-size: 13px; }
       .heatmap th, .heatmap td { padding: 7px; }
@@ -338,7 +308,7 @@
 <body>
   <header>
     <h1>SluggerStats Prediction Report</h1>
-    <p class="source">Source: E:\SluggerStats 2.0\predictions\next_games.csv</p>
+    <p class="source">Source: predictions\roster_fallback_final.csv</p>
   </header>
   <main>
     <section class="summary-panel">
@@ -489,35 +459,17 @@
       </div>
       
     <section class="win-panel">
-      <div class="team-prob">
-        <div class="team-line"><strong>Sacramento Athletics</strong><span>47.7%</span></div>
-        <div class="bar"><div class="bar-fill away" style="width:47.7%"></div></div>
+      <div class="team-line">
+        <span><strong>Sacramento Athletics</strong></span>
+        <span>47.7%</span>
       </div>
-      <div class="team-prob">
-        <div class="team-line"><strong>Philadelphia Phillies</strong><span>52.3%</span></div>
-        <div class="bar"><div class="bar-fill home" style="width:52.3%"></div></div>
+      <div class="team-line team-line-right">
+        <span><strong>Philadelphia Phillies</strong></span>
+        <span>52.3%</span>
       </div>
-    </section>
-    
-      
-    <section class="market-panel">
-      <div class="market-title">
-        <strong>Polymarket Moneyline</strong>
-        <span><a href="https://polymarket.com/event/mlb-oak-phi-2026-05-05">Athletics vs. Philadelphia Phillies</a></span>
-      </div>
-      <div class="market-grid">
-        
-    <div class="market-card">
-      <div><strong>Sacramento Athletics</strong><span>Market 36.5%</span></div>
-      <em class="positive">Model edge +11.2 pts</em>
-    </div>
-    
-        
-    <div class="market-card">
-      <div><strong>Philadelphia Phillies</strong><span>Market 63.5%</span></div>
-      <em class="negative">Model edge -11.2 pts</em>
-    </div>
-    
+      <div class="bar matchup-bar">
+        <div class="bar-fill away" style="width:47.7%"></div>
+        <div class="bar-fill home" style="width:52.3%"></div>
       </div>
     </section>
     
@@ -1011,35 +963,17 @@
       </div>
       
     <section class="win-panel">
-      <div class="team-prob">
-        <div class="team-line"><strong>Baltimore Orioles</strong><span>51.4%</span></div>
-        <div class="bar"><div class="bar-fill away" style="width:51.4%"></div></div>
+      <div class="team-line">
+        <span><strong>Baltimore Orioles</strong></span>
+        <span>51.4%</span>
       </div>
-      <div class="team-prob">
-        <div class="team-line"><strong>Miami Marlins</strong><span>48.5%</span></div>
-        <div class="bar"><div class="bar-fill home" style="width:48.5%"></div></div>
+      <div class="team-line team-line-right">
+        <span><strong>Miami Marlins</strong></span>
+        <span>48.5%</span>
       </div>
-    </section>
-    
-      
-    <section class="market-panel">
-      <div class="market-title">
-        <strong>Polymarket Moneyline</strong>
-        <span><a href="https://polymarket.com/event/mlb-bal-mia-2026-05-05">Baltimore Orioles vs. Miami Marlins</a></span>
-      </div>
-      <div class="market-grid">
-        
-    <div class="market-card">
-      <div><strong>Baltimore Orioles</strong><span>Market 43.5%</span></div>
-      <em class="positive">Model edge +8.0 pts</em>
-    </div>
-    
-        
-    <div class="market-card">
-      <div><strong>Miami Marlins</strong><span>Market 56.5%</span></div>
-      <em class="negative">Model edge -8.0 pts</em>
-    </div>
-    
+      <div class="bar matchup-bar">
+        <div class="bar-fill away" style="width:51.4%"></div>
+        <div class="bar-fill home" style="width:48.5%"></div>
       </div>
     </section>
     
@@ -1533,35 +1467,17 @@
       </div>
       
     <section class="win-panel">
-      <div class="team-prob">
-        <div class="team-line"><strong>Boston Red Sox</strong><span>43.9%</span></div>
-        <div class="bar"><div class="bar-fill away" style="width:43.9%"></div></div>
+      <div class="team-line">
+        <span><strong>Boston Red Sox</strong></span>
+        <span>43.9%</span>
       </div>
-      <div class="team-prob">
-        <div class="team-line"><strong>Detroit Tigers</strong><span>56.1%</span></div>
-        <div class="bar"><div class="bar-fill home" style="width:56.1%"></div></div>
+      <div class="team-line team-line-right">
+        <span><strong>Detroit Tigers</strong></span>
+        <span>56.1%</span>
       </div>
-    </section>
-    
-      
-    <section class="market-panel">
-      <div class="market-title">
-        <strong>Polymarket Moneyline</strong>
-        <span><a href="https://polymarket.com/event/mlb-bos-det-2026-05-05">Boston Red Sox vs. Detroit Tigers</a></span>
-      </div>
-      <div class="market-grid">
-        
-    <div class="market-card">
-      <div><strong>Boston Red Sox</strong><span>Market 40.5%</span></div>
-      <em class="positive">Model edge +3.4 pts</em>
-    </div>
-    
-        
-    <div class="market-card">
-      <div><strong>Detroit Tigers</strong><span>Market 59.5%</span></div>
-      <em class="negative">Model edge -3.4 pts</em>
-    </div>
-    
+      <div class="bar matchup-bar">
+        <div class="bar-fill away" style="width:43.9%"></div>
+        <div class="bar-fill home" style="width:56.1%"></div>
       </div>
     </section>
     
@@ -2055,35 +1971,17 @@
       </div>
       
     <section class="win-panel">
-      <div class="team-prob">
-        <div class="team-line"><strong>Toronto Blue Jays</strong><span>50.3%</span></div>
-        <div class="bar"><div class="bar-fill away" style="width:50.3%"></div></div>
+      <div class="team-line">
+        <span><strong>Toronto Blue Jays</strong></span>
+        <span>50.3%</span>
       </div>
-      <div class="team-prob">
-        <div class="team-line"><strong>Tampa Bay Rays</strong><span>49.7%</span></div>
-        <div class="bar"><div class="bar-fill home" style="width:49.7%"></div></div>
+      <div class="team-line team-line-right">
+        <span><strong>Tampa Bay Rays</strong></span>
+        <span>49.7%</span>
       </div>
-    </section>
-    
-      
-    <section class="market-panel">
-      <div class="market-title">
-        <strong>Polymarket Moneyline</strong>
-        <span><a href="https://polymarket.com/event/mlb-tor-tb-2026-05-05">Toronto Blue Jays vs. Tampa Bay Rays</a></span>
-      </div>
-      <div class="market-grid">
-        
-    <div class="market-card">
-      <div><strong>Toronto Blue Jays</strong><span>Market 46.5%</span></div>
-      <em class="positive">Model edge +3.8 pts</em>
-    </div>
-    
-        
-    <div class="market-card">
-      <div><strong>Tampa Bay Rays</strong><span>Market 53.5%</span></div>
-      <em class="negative">Model edge -3.8 pts</em>
-    </div>
-    
+      <div class="bar matchup-bar">
+        <div class="bar-fill away" style="width:50.3%"></div>
+        <div class="bar-fill home" style="width:49.7%"></div>
       </div>
     </section>
     
@@ -2577,35 +2475,17 @@
       </div>
       
     <section class="win-panel">
-      <div class="team-prob">
-        <div class="team-line"><strong>Minnesota Twins</strong><span>55.2%</span></div>
-        <div class="bar"><div class="bar-fill away" style="width:55.2%"></div></div>
+      <div class="team-line">
+        <span><strong>Minnesota Twins</strong></span>
+        <span>55.2%</span>
       </div>
-      <div class="team-prob">
-        <div class="team-line"><strong>Washington Nationals</strong><span>44.8%</span></div>
-        <div class="bar"><div class="bar-fill home" style="width:44.8%"></div></div>
+      <div class="team-line team-line-right">
+        <span><strong>Washington Nationals</strong></span>
+        <span>44.8%</span>
       </div>
-    </section>
-    
-      
-    <section class="market-panel">
-      <div class="market-title">
-        <strong>Polymarket Moneyline</strong>
-        <span><a href="https://polymarket.com/event/mlb-min-wsh-2026-05-05">Minnesota Twins vs. Washington Nationals</a></span>
-      </div>
-      <div class="market-grid">
-        
-    <div class="market-card">
-      <div><strong>Minnesota Twins</strong><span>Market 51.5%</span></div>
-      <em class="positive">Model edge +3.7 pts</em>
-    </div>
-    
-        
-    <div class="market-card">
-      <div><strong>Washington Nationals</strong><span>Market 48.5%</span></div>
-      <em class="negative">Model edge -3.7 pts</em>
-    </div>
-    
+      <div class="bar matchup-bar">
+        <div class="bar-fill away" style="width:55.2%"></div>
+        <div class="bar-fill home" style="width:44.8%"></div>
       </div>
     </section>
     
@@ -3099,35 +2979,17 @@
       </div>
       
     <section class="win-panel">
-      <div class="team-prob">
-        <div class="team-line"><strong>Texas Rangers</strong><span>53.7%</span></div>
-        <div class="bar"><div class="bar-fill away" style="width:53.7%"></div></div>
+      <div class="team-line">
+        <span><strong>Texas Rangers</strong></span>
+        <span>53.7%</span>
       </div>
-      <div class="team-prob">
-        <div class="team-line"><strong>New York Yankees</strong><span>46.3%</span></div>
-        <div class="bar"><div class="bar-fill home" style="width:46.3%"></div></div>
+      <div class="team-line team-line-right">
+        <span><strong>New York Yankees</strong></span>
+        <span>46.3%</span>
       </div>
-    </section>
-    
-      
-    <section class="market-panel">
-      <div class="market-title">
-        <strong>Polymarket Moneyline</strong>
-        <span><a href="https://polymarket.com/event/mlb-tex-nyy-2026-05-05">Texas Rangers vs. New York Yankees</a></span>
-      </div>
-      <div class="market-grid">
-        
-    <div class="market-card">
-      <div><strong>Texas Rangers</strong><span>Market 46.5%</span></div>
-      <em class="positive">Model edge +7.2 pts</em>
-    </div>
-    
-        
-    <div class="market-card">
-      <div><strong>New York Yankees</strong><span>Market 53.5%</span></div>
-      <em class="negative">Model edge -7.2 pts</em>
-    </div>
-    
+      <div class="bar matchup-bar">
+        <div class="bar-fill away" style="width:53.7%"></div>
+        <div class="bar-fill home" style="width:46.3%"></div>
       </div>
     </section>
     
@@ -3621,35 +3483,17 @@
       </div>
       
     <section class="win-panel">
-      <div class="team-prob">
-        <div class="team-line"><strong>Cincinnati Reds</strong><span>46.7%</span></div>
-        <div class="bar"><div class="bar-fill away" style="width:46.7%"></div></div>
+      <div class="team-line">
+        <span><strong>Cincinnati Reds</strong></span>
+        <span>46.7%</span>
       </div>
-      <div class="team-prob">
-        <div class="team-line"><strong>Chicago Cubs</strong><span>53.3%</span></div>
-        <div class="bar"><div class="bar-fill home" style="width:53.3%"></div></div>
+      <div class="team-line team-line-right">
+        <span><strong>Chicago Cubs</strong></span>
+        <span>53.3%</span>
       </div>
-    </section>
-    
-      
-    <section class="market-panel">
-      <div class="market-title">
-        <strong>Polymarket Moneyline</strong>
-        <span><a href="https://polymarket.com/event/mlb-cin-chc-2026-05-05">Cincinnati Reds vs. Chicago Cubs</a></span>
-      </div>
-      <div class="market-grid">
-        
-    <div class="market-card">
-      <div><strong>Cincinnati Reds</strong><span>Market 39.5%</span></div>
-      <em class="positive">Model edge +7.2 pts</em>
-    </div>
-    
-        
-    <div class="market-card">
-      <div><strong>Chicago Cubs</strong><span>Market 60.5%</span></div>
-      <em class="negative">Model edge -7.2 pts</em>
-    </div>
-    
+      <div class="bar matchup-bar">
+        <div class="bar-fill away" style="width:46.7%"></div>
+        <div class="bar-fill home" style="width:53.3%"></div>
       </div>
     </section>
     
@@ -4143,35 +3987,17 @@
       </div>
       
     <section class="win-panel">
-      <div class="team-prob">
-        <div class="team-line"><strong>Cleveland Guardians</strong><span>46.3%</span></div>
-        <div class="bar"><div class="bar-fill away" style="width:46.3%"></div></div>
+      <div class="team-line">
+        <span><strong>Cleveland Guardians</strong></span>
+        <span>46.3%</span>
       </div>
-      <div class="team-prob">
-        <div class="team-line"><strong>Kansas City Royals</strong><span>53.7%</span></div>
-        <div class="bar"><div class="bar-fill home" style="width:53.7%"></div></div>
+      <div class="team-line team-line-right">
+        <span><strong>Kansas City Royals</strong></span>
+        <span>53.7%</span>
       </div>
-    </section>
-    
-      
-    <section class="market-panel">
-      <div class="market-title">
-        <strong>Polymarket Moneyline</strong>
-        <span><a href="https://polymarket.com/event/mlb-cle-kc-2026-05-05">Cleveland Guardians vs. Kansas City Royals</a></span>
-      </div>
-      <div class="market-grid">
-        
-    <div class="market-card">
-      <div><strong>Cleveland Guardians</strong><span>Market 52.5%</span></div>
-      <em class="negative">Model edge -6.2 pts</em>
-    </div>
-    
-        
-    <div class="market-card">
-      <div><strong>Kansas City Royals</strong><span>Market 47.5%</span></div>
-      <em class="positive">Model edge +6.2 pts</em>
-    </div>
-    
+      <div class="bar matchup-bar">
+        <div class="bar-fill away" style="width:46.3%"></div>
+        <div class="bar-fill home" style="width:53.7%"></div>
       </div>
     </section>
     
@@ -4665,35 +4491,17 @@
       </div>
       
     <section class="win-panel">
-      <div class="team-prob">
-        <div class="team-line"><strong>Milwaukee Brewers</strong><span>46.7%</span></div>
-        <div class="bar"><div class="bar-fill away" style="width:46.7%"></div></div>
+      <div class="team-line">
+        <span><strong>Milwaukee Brewers</strong></span>
+        <span>46.7%</span>
       </div>
-      <div class="team-prob">
-        <div class="team-line"><strong>St. Louis Cardinals</strong><span>53.3%</span></div>
-        <div class="bar"><div class="bar-fill home" style="width:53.3%"></div></div>
+      <div class="team-line team-line-right">
+        <span><strong>St. Louis Cardinals</strong></span>
+        <span>53.3%</span>
       </div>
-    </section>
-    
-      
-    <section class="market-panel">
-      <div class="market-title">
-        <strong>Polymarket Moneyline</strong>
-        <span><a href="https://polymarket.com/event/mlb-mil-stl-2026-05-05">Milwaukee Brewers vs. St. Louis Cardinals</a></span>
-      </div>
-      <div class="market-grid">
-        
-    <div class="market-card">
-      <div><strong>Milwaukee Brewers</strong><span>Market 49.5%</span></div>
-      <em class="negative">Model edge -2.8 pts</em>
-    </div>
-    
-        
-    <div class="market-card">
-      <div><strong>St. Louis Cardinals</strong><span>Market 50.5%</span></div>
-      <em class="positive">Model edge +2.8 pts</em>
-    </div>
-    
+      <div class="bar matchup-bar">
+        <div class="bar-fill away" style="width:46.7%"></div>
+        <div class="bar-fill home" style="width:53.3%"></div>
       </div>
     </section>
     
@@ -5187,35 +4995,17 @@
       </div>
       
     <section class="win-panel">
-      <div class="team-prob">
-        <div class="team-line"><strong>Los Angeles Dodgers</strong><span>58.6%</span></div>
-        <div class="bar"><div class="bar-fill away" style="width:58.6%"></div></div>
+      <div class="team-line">
+        <span><strong>Los Angeles Dodgers</strong></span>
+        <span>58.6%</span>
       </div>
-      <div class="team-prob">
-        <div class="team-line"><strong>Houston Astros</strong><span>41.4%</span></div>
-        <div class="bar"><div class="bar-fill home" style="width:41.4%"></div></div>
+      <div class="team-line team-line-right">
+        <span><strong>Houston Astros</strong></span>
+        <span>41.4%</span>
       </div>
-    </section>
-    
-      
-    <section class="market-panel">
-      <div class="market-title">
-        <strong>Polymarket Moneyline</strong>
-        <span><a href="https://polymarket.com/event/mlb-lad-hou-2026-05-05">Los Angeles Dodgers vs. Houston Astros</a></span>
-      </div>
-      <div class="market-grid">
-        
-    <div class="market-card">
-      <div><strong>Los Angeles Dodgers</strong><span>Market 67.5%</span></div>
-      <em class="negative">Model edge -8.9 pts</em>
-    </div>
-    
-        
-    <div class="market-card">
-      <div><strong>Houston Astros</strong><span>Market 32.5%</span></div>
-      <em class="positive">Model edge +8.9 pts</em>
-    </div>
-    
+      <div class="bar matchup-bar">
+        <div class="bar-fill away" style="width:58.6%"></div>
+        <div class="bar-fill home" style="width:41.4%"></div>
       </div>
     </section>
     
@@ -5709,35 +5499,17 @@
       </div>
       
     <section class="win-panel">
-      <div class="team-prob">
-        <div class="team-line"><strong>Chicago White Sox</strong><span>45.4%</span></div>
-        <div class="bar"><div class="bar-fill away" style="width:45.4%"></div></div>
+      <div class="team-line">
+        <span><strong>Chicago White Sox</strong></span>
+        <span>45.4%</span>
       </div>
-      <div class="team-prob">
-        <div class="team-line"><strong>Los Angeles Angels</strong><span>54.6%</span></div>
-        <div class="bar"><div class="bar-fill home" style="width:54.6%"></div></div>
+      <div class="team-line team-line-right">
+        <span><strong>Los Angeles Angels</strong></span>
+        <span>54.6%</span>
       </div>
-    </section>
-    
-      
-    <section class="market-panel">
-      <div class="market-title">
-        <strong>Polymarket Moneyline</strong>
-        <span><a href="https://polymarket.com/event/mlb-cws-laa-2026-05-05">Chicago White Sox vs. Los Angeles Angels</a></span>
-      </div>
-      <div class="market-grid">
-        
-    <div class="market-card">
-      <div><strong>Chicago White Sox</strong><span>Market 49.5%</span></div>
-      <em class="negative">Model edge -4.1 pts</em>
-    </div>
-    
-        
-    <div class="market-card">
-      <div><strong>Los Angeles Angels</strong><span>Market 50.5%</span></div>
-      <em class="positive">Model edge +4.1 pts</em>
-    </div>
-    
+      <div class="bar matchup-bar">
+        <div class="bar-fill away" style="width:45.4%"></div>
+        <div class="bar-fill home" style="width:54.6%"></div>
       </div>
     </section>
     
@@ -6231,35 +6003,17 @@
       </div>
       
     <section class="win-panel">
-      <div class="team-prob">
-        <div class="team-line"><strong>Atlanta Braves</strong><span>45.8%</span></div>
-        <div class="bar"><div class="bar-fill away" style="width:45.8%"></div></div>
+      <div class="team-line">
+        <span><strong>Atlanta Braves</strong></span>
+        <span>45.8%</span>
       </div>
-      <div class="team-prob">
-        <div class="team-line"><strong>Seattle Mariners</strong><span>54.2%</span></div>
-        <div class="bar"><div class="bar-fill home" style="width:54.2%"></div></div>
+      <div class="team-line team-line-right">
+        <span><strong>Seattle Mariners</strong></span>
+        <span>54.2%</span>
       </div>
-    </section>
-    
-      
-    <section class="market-panel">
-      <div class="market-title">
-        <strong>Polymarket Moneyline</strong>
-        <span><a href="https://polymarket.com/event/mlb-atl-sea-2026-05-05">Atlanta Braves vs. Seattle Mariners</a></span>
-      </div>
-      <div class="market-grid">
-        
-    <div class="market-card">
-      <div><strong>Atlanta Braves</strong><span>Market 45.5%</span></div>
-      <em class="positive">Model edge +0.3 pts</em>
-    </div>
-    
-        
-    <div class="market-card">
-      <div><strong>Seattle Mariners</strong><span>Market 54.5%</span></div>
-      <em class="negative">Model edge -0.3 pts</em>
-    </div>
-    
+      <div class="bar matchup-bar">
+        <div class="bar-fill away" style="width:45.8%"></div>
+        <div class="bar-fill home" style="width:54.2%"></div>
       </div>
     </section>
     
@@ -6753,35 +6507,17 @@
       </div>
       
     <section class="win-panel">
-      <div class="team-prob">
-        <div class="team-line"><strong>Pittsburgh Pirates</strong><span>37.2%</span></div>
-        <div class="bar"><div class="bar-fill away" style="width:37.2%"></div></div>
+      <div class="team-line">
+        <span><strong>Pittsburgh Pirates</strong></span>
+        <span>37.2%</span>
       </div>
-      <div class="team-prob">
-        <div class="team-line"><strong>Arizona Diamondbacks</strong><span>62.8%</span></div>
-        <div class="bar"><div class="bar-fill home" style="width:62.8%"></div></div>
+      <div class="team-line team-line-right">
+        <span><strong>Arizona Diamondbacks</strong></span>
+        <span>62.8%</span>
       </div>
-    </section>
-    
-      
-    <section class="market-panel">
-      <div class="market-title">
-        <strong>Polymarket Moneyline</strong>
-        <span><a href="https://polymarket.com/event/mlb-pit-ari-2026-05-05">Pittsburgh Pirates vs. Arizona Diamondbacks</a></span>
-      </div>
-      <div class="market-grid">
-        
-    <div class="market-card">
-      <div><strong>Pittsburgh Pirates</strong><span>Market 43.5%</span></div>
-      <em class="negative">Model edge -6.3 pts</em>
-    </div>
-    
-        
-    <div class="market-card">
-      <div><strong>Arizona Diamondbacks</strong><span>Market 56.5%</span></div>
-      <em class="positive">Model edge +6.3 pts</em>
-    </div>
-    
+      <div class="bar matchup-bar">
+        <div class="bar-fill away" style="width:37.2%"></div>
+        <div class="bar-fill home" style="width:62.8%"></div>
       </div>
     </section>
     
@@ -7275,35 +7011,17 @@
       </div>
       
     <section class="win-panel">
-      <div class="team-prob">
-        <div class="team-line"><strong>San Diego Padres</strong><span>54.6%</span></div>
-        <div class="bar"><div class="bar-fill away" style="width:54.6%"></div></div>
+      <div class="team-line">
+        <span><strong>San Diego Padres</strong></span>
+        <span>54.6%</span>
       </div>
-      <div class="team-prob">
-        <div class="team-line"><strong>San Francisco Giants</strong><span>45.4%</span></div>
-        <div class="bar"><div class="bar-fill home" style="width:45.4%"></div></div>
+      <div class="team-line team-line-right">
+        <span><strong>San Francisco Giants</strong></span>
+        <span>45.4%</span>
       </div>
-    </section>
-    
-      
-    <section class="market-panel">
-      <div class="market-title">
-        <strong>Polymarket Moneyline</strong>
-        <span><a href="https://polymarket.com/event/mlb-sd-sf-2026-05-05">San Diego Padres vs. San Francisco Giants</a></span>
-      </div>
-      <div class="market-grid">
-        
-    <div class="market-card">
-      <div><strong>San Diego Padres</strong><span>Market 45.5%</span></div>
-      <em class="positive">Model edge +9.1 pts</em>
-    </div>
-    
-        
-    <div class="market-card">
-      <div><strong>San Francisco Giants</strong><span>Market 54.5%</span></div>
-      <em class="negative">Model edge -9.1 pts</em>
-    </div>
-    
+      <div class="bar matchup-bar">
+        <div class="bar-fill away" style="width:54.6%"></div>
+        <div class="bar-fill home" style="width:45.4%"></div>
       </div>
     </section>
     
