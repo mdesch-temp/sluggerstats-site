@@ -56,10 +56,62 @@
       font-weight: 700;
       white-space: nowrap;
     }
+    .edge-picks {
+      padding: 16px 18px;
+      border-bottom: 1px solid var(--line);
+      background: #fbfcfe;
+    }
+    .edge-picks-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 16px;
+      margin-bottom: 12px;
+    }
+    .edge-picks-title span {
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .edge-picks-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 10px;
+    }
+    .edge-pick-card {
+      display: grid;
+      gap: 10px;
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #ffffff;
+    }
+    .edge-pick-card span {
+      display: block;
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 2px;
+    }
+    .edge-pick-card dl {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 8px;
+      margin: 0;
+    }
+    .edge-pick-card dt {
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+    .edge-pick-card dd {
+      margin: 0;
+      font-weight: 700;
+    }
     .summary-table-wrap { overflow-x: auto; }
     .summary-table {
       width: 100%;
-      min-width: 760px;
+      min-width: 900px;
       border-collapse: collapse;
       font-size: 15px;
     }
@@ -95,6 +147,9 @@
     .summary-muted { color: var(--muted); }
     .edge-pos { color: var(--home); font-weight: 700; }
     .edge-neg { color: var(--away); font-weight: 700; }
+    .signal-best { color: var(--home); font-weight: 800; }
+    .signal-lean { color: var(--accent); font-weight: 800; }
+    .signal-thin { color: #8a6d1f; font-weight: 800; }
     .game-section {
       background: #ffffff;
       border: 1px solid var(--line);
@@ -352,7 +407,7 @@
 <body>
   <header>
     <h1>SluggerStats Prediction Report</h1>
-    <p class="source">Source: E:\SluggerStats 2.0\predictions\next_games.csv</p>
+    <p class="source">Source: predictions\next_games.csv</p>
   </header>
   <main>
     <section class="summary-panel">
@@ -363,6 +418,82 @@
         </div>
         <span>14 games</span>
       </div>
+      
+    <div class="edge-picks">
+      <div class="edge-picks-title">
+        <strong>Best Low-Risk Edges</strong>
+        <span>Projected winner plus positive market edge</span>
+      </div>
+      <div class="edge-picks-grid">
+        
+                        <article class="edge-pick-card">
+                          <div>
+                            <strong>Minnesota Twins</strong>
+                            <span>Minnesota Twins at Washington Nationals</span>
+                          </div>
+                          <dl>
+                            <div><dt>Model</dt><dd>59.5%</dd></div>
+                            <div><dt>Market</dt><dd>51.5%</dd></div>
+                            <div><dt>Edge</dt><dd>+8.0</dd></div>
+                            <div><dt>Signal</dt><dd>76.2</dd></div>
+                          </dl>
+                        </article>
+                        
+                        <article class="edge-pick-card">
+                          <div>
+                            <strong>Kansas City Royals</strong>
+                            <span>Cleveland Guardians at Kansas City Royals</span>
+                          </div>
+                          <dl>
+                            <div><dt>Model</dt><dd>56.5%</dd></div>
+                            <div><dt>Market</dt><dd>47.5%</dd></div>
+                            <div><dt>Edge</dt><dd>+9.0</dd></div>
+                            <div><dt>Signal</dt><dd>58.3</dd></div>
+                          </dl>
+                        </article>
+                        
+                        <article class="edge-pick-card">
+                          <div>
+                            <strong>San Diego Padres</strong>
+                            <span>San Diego Padres at San Francisco Giants</span>
+                          </div>
+                          <dl>
+                            <div><dt>Model</dt><dd>55.5%</dd></div>
+                            <div><dt>Market</dt><dd>45.5%</dd></div>
+                            <div><dt>Edge</dt><dd>+10.0</dd></div>
+                            <div><dt>Signal</dt><dd>55.8</dd></div>
+                          </dl>
+                        </article>
+                        
+                        <article class="edge-pick-card">
+                          <div>
+                            <strong>Los Angeles Angels</strong>
+                            <span>Chicago White Sox at Los Angeles Angels</span>
+                          </div>
+                          <dl>
+                            <div><dt>Model</dt><dd>57.6%</dd></div>
+                            <div><dt>Market</dt><dd>50.5%</dd></div>
+                            <div><dt>Edge</dt><dd>+7.1</dd></div>
+                            <div><dt>Signal</dt><dd>54.3</dd></div>
+                          </dl>
+                        </article>
+                        
+                        <article class="edge-pick-card">
+                          <div>
+                            <strong>Baltimore Orioles</strong>
+                            <span>Baltimore Orioles at Miami Marlins</span>
+                          </div>
+                          <dl>
+                            <div><dt>Model</dt><dd>53.0%</dd></div>
+                            <div><dt>Market</dt><dd>43.5%</dd></div>
+                            <div><dt>Edge</dt><dd>+9.5</dd></div>
+                            <div><dt>Signal</dt><dd>28.4</dd></div>
+                          </dl>
+                        </article>
+                        
+      </div>
+    </div>
+    
       <div class="summary-table-wrap">
         <table class="summary-table">
           <thead>
@@ -371,31 +502,17 @@
               <th>Projected Winner</th>
               <th>Polymarket</th>
               <th>Model Edge</th>
+              <th>Low-Risk Signal</th>
               <th>Likely Score</th>
             </tr>
           </thead>
           <tbody>
-                <tr class="summary-link-row" tabindex="0" onclick="location.href='#game-2e1fa38d-1119-5b5e-9920-17f1d54d1676'" onkeydown="if (event.key === 'Enter' || event.key === ' ') location.href='#game-2e1fa38d-1119-5b5e-9920-17f1d54d1676'">
-                  <td data-label="Game"><a href="#game-2e1fa38d-1119-5b5e-9920-17f1d54d1676"><strong>Los Angeles Dodgers</strong> at <strong>Houston Astros</strong></a></td>
-                  <td data-label="Projected Winner">Los Angeles Dodgers <span class="summary-muted">56.7%</span></td>
-                  <td data-label="Polymarket">Los Angeles Dodgers 67.5%</td>
-                  <td data-label="Model Edge"><span class="edge-neg">-10.8 pts</span></td>
-                  <td data-label="Likely Score">5-4</td>
-                </tr>
-                
-                <tr class="summary-link-row" tabindex="0" onclick="location.href='#game-27801b00-27d5-505f-a146-15a74d413831'" onkeydown="if (event.key === 'Enter' || event.key === ' ') location.href='#game-27801b00-27d5-505f-a146-15a74d413831'">
-                  <td data-label="Game"><a href="#game-27801b00-27d5-505f-a146-15a74d413831"><strong>San Diego Padres</strong> at <strong>San Francisco Giants</strong></a></td>
-                  <td data-label="Projected Winner">San Diego Padres <span class="summary-muted">55.5%</span></td>
-                  <td data-label="Polymarket">San Francisco Giants 54.5%</td>
-                  <td data-label="Model Edge"><span class="edge-pos">+10.0 pts</span></td>
-                  <td data-label="Likely Score">5-4</td>
-                </tr>
-                
-                <tr class="summary-link-row" tabindex="0" onclick="location.href='#game-43c85012-d827-5e7a-94da-68bc4595f6ce'" onkeydown="if (event.key === 'Enter' || event.key === ' ') location.href='#game-43c85012-d827-5e7a-94da-68bc4595f6ce'">
-                  <td data-label="Game"><a href="#game-43c85012-d827-5e7a-94da-68bc4595f6ce"><strong>Baltimore Orioles</strong> at <strong>Miami Marlins</strong></a></td>
-                  <td data-label="Projected Winner">Baltimore Orioles <span class="summary-muted">53.0%</span></td>
-                  <td data-label="Polymarket">Miami Marlins 56.5%</td>
-                  <td data-label="Model Edge"><span class="edge-pos">+9.5 pts</span></td>
+                <tr class="summary-link-row" tabindex="0" onclick="location.href='#game-6a98d8d7-1fb2-504a-9280-e2e0d313a581'" onkeydown="if (event.key === 'Enter' || event.key === ' ') location.href='#game-6a98d8d7-1fb2-504a-9280-e2e0d313a581'">
+                  <td data-label="Game"><a href="#game-6a98d8d7-1fb2-504a-9280-e2e0d313a581"><strong>Minnesota Twins</strong> at <strong>Washington Nationals</strong></a></td>
+                  <td data-label="Projected Winner">Minnesota Twins <span class="summary-muted">59.5%</span></td>
+                  <td data-label="Polymarket">Minnesota Twins 51.5%</td>
+                  <td data-label="Model Edge"><span class="edge-pos">+8.0 pts</span></td>
+                  <td data-label="Low-Risk Signal"><span class="signal-best">Best</span> <span class="summary-muted">76.2</span></td>
                   <td data-label="Likely Score">5-4</td>
                 </tr>
                 
@@ -404,23 +521,17 @@
                   <td data-label="Projected Winner">Kansas City Royals <span class="summary-muted">56.5%</span></td>
                   <td data-label="Polymarket">Cleveland Guardians 52.5%</td>
                   <td data-label="Model Edge"><span class="edge-pos">+9.0 pts</span></td>
+                  <td data-label="Low-Risk Signal"><span class="signal-lean">Lean</span> <span class="summary-muted">58.3</span></td>
                   <td data-label="Likely Score">5-6</td>
                 </tr>
                 
-                <tr class="summary-link-row" tabindex="0" onclick="location.href='#game-6a98d8d7-1fb2-504a-9280-e2e0d313a581'" onkeydown="if (event.key === 'Enter' || event.key === ' ') location.href='#game-6a98d8d7-1fb2-504a-9280-e2e0d313a581'">
-                  <td data-label="Game"><a href="#game-6a98d8d7-1fb2-504a-9280-e2e0d313a581"><strong>Minnesota Twins</strong> at <strong>Washington Nationals</strong></a></td>
-                  <td data-label="Projected Winner">Minnesota Twins <span class="summary-muted">59.5%</span></td>
-                  <td data-label="Polymarket">Minnesota Twins 51.5%</td>
-                  <td data-label="Model Edge"><span class="edge-pos">+8.0 pts</span></td>
+                <tr class="summary-link-row" tabindex="0" onclick="location.href='#game-27801b00-27d5-505f-a146-15a74d413831'" onkeydown="if (event.key === 'Enter' || event.key === ' ') location.href='#game-27801b00-27d5-505f-a146-15a74d413831'">
+                  <td data-label="Game"><a href="#game-27801b00-27d5-505f-a146-15a74d413831"><strong>San Diego Padres</strong> at <strong>San Francisco Giants</strong></a></td>
+                  <td data-label="Projected Winner">San Diego Padres <span class="summary-muted">55.5%</span></td>
+                  <td data-label="Polymarket">San Francisco Giants 54.5%</td>
+                  <td data-label="Model Edge"><span class="edge-pos">+10.0 pts</span></td>
+                  <td data-label="Low-Risk Signal"><span class="signal-lean">Lean</span> <span class="summary-muted">55.8</span></td>
                   <td data-label="Likely Score">5-4</td>
-                </tr>
-                
-                <tr class="summary-link-row" tabindex="0" onclick="location.href='#game-9f2ac86d-52ed-5709-ae8f-914d8ab85963'" onkeydown="if (event.key === 'Enter' || event.key === ' ') location.href='#game-9f2ac86d-52ed-5709-ae8f-914d8ab85963'">
-                  <td data-label="Game"><a href="#game-9f2ac86d-52ed-5709-ae8f-914d8ab85963"><strong>Sacramento Athletics</strong> at <strong>Philadelphia Phillies</strong></a></td>
-                  <td data-label="Projected Winner">Philadelphia Phillies <span class="summary-muted">55.9%</span></td>
-                  <td data-label="Polymarket">Philadelphia Phillies 63.5%</td>
-                  <td data-label="Model Edge"><span class="edge-neg">-7.6 pts</span></td>
-                  <td data-label="Likely Score">4-5</td>
                 </tr>
                 
                 <tr class="summary-link-row" tabindex="0" onclick="location.href='#game-7ae08d22-3343-55c6-8053-181249b33bf0'" onkeydown="if (event.key === 'Enter' || event.key === ' ') location.href='#game-7ae08d22-3343-55c6-8053-181249b33bf0'">
@@ -428,23 +539,17 @@
                   <td data-label="Projected Winner">Los Angeles Angels <span class="summary-muted">57.6%</span></td>
                   <td data-label="Polymarket">Los Angeles Angels 50.5%</td>
                   <td data-label="Model Edge"><span class="edge-pos">+7.1 pts</span></td>
+                  <td data-label="Low-Risk Signal"><span class="signal-lean">Lean</span> <span class="summary-muted">54.3</span></td>
                   <td data-label="Likely Score">5-6</td>
                 </tr>
                 
-                <tr class="summary-link-row" tabindex="0" onclick="location.href='#game-4f424524-9809-5998-8b96-e46e233dc075'" onkeydown="if (event.key === 'Enter' || event.key === ' ') location.href='#game-4f424524-9809-5998-8b96-e46e233dc075'">
-                  <td data-label="Game"><a href="#game-4f424524-9809-5998-8b96-e46e233dc075"><strong>Texas Rangers</strong> at <strong>New York Yankees</strong></a></td>
-                  <td data-label="Projected Winner">Texas Rangers <span class="summary-muted">51.2%</span></td>
-                  <td data-label="Polymarket">New York Yankees 53.5%</td>
-                  <td data-label="Model Edge"><span class="edge-pos">+4.7 pts</span></td>
+                <tr class="summary-link-row" tabindex="0" onclick="location.href='#game-43c85012-d827-5e7a-94da-68bc4595f6ce'" onkeydown="if (event.key === 'Enter' || event.key === ' ') location.href='#game-43c85012-d827-5e7a-94da-68bc4595f6ce'">
+                  <td data-label="Game"><a href="#game-43c85012-d827-5e7a-94da-68bc4595f6ce"><strong>Baltimore Orioles</strong> at <strong>Miami Marlins</strong></a></td>
+                  <td data-label="Projected Winner">Baltimore Orioles <span class="summary-muted">53.0%</span></td>
+                  <td data-label="Polymarket">Miami Marlins 56.5%</td>
+                  <td data-label="Model Edge"><span class="edge-pos">+9.5 pts</span></td>
+                  <td data-label="Low-Risk Signal"><span class="signal-thin">Thin</span> <span class="summary-muted">28.4</span></td>
                   <td data-label="Likely Score">5-4</td>
-                </tr>
-                
-                <tr class="summary-link-row" tabindex="0" onclick="location.href='#game-dc42634a-e6e4-5e75-b1b2-c202db4bc4e8'" onkeydown="if (event.key === 'Enter' || event.key === ' ') location.href='#game-dc42634a-e6e4-5e75-b1b2-c202db4bc4e8'">
-                  <td data-label="Game"><a href="#game-dc42634a-e6e4-5e75-b1b2-c202db4bc4e8"><strong>Cincinnati Reds</strong> at <strong>Chicago Cubs</strong></a></td>
-                  <td data-label="Projected Winner">Chicago Cubs <span class="summary-muted">55.8%</span></td>
-                  <td data-label="Polymarket">Chicago Cubs 60.5%</td>
-                  <td data-label="Model Edge"><span class="edge-neg">-4.7 pts</span></td>
-                  <td data-label="Likely Score">4-5</td>
                 </tr>
                 
                 <tr class="summary-link-row" tabindex="0" onclick="location.href='#game-bfbdf9ff-4200-54f4-911f-c1c7009669ee'" onkeydown="if (event.key === 'Enter' || event.key === ' ') location.href='#game-bfbdf9ff-4200-54f4-911f-c1c7009669ee'">
@@ -452,14 +557,7 @@
                   <td data-label="Projected Winner">St. Louis Cardinals <span class="summary-muted">53.7%</span></td>
                   <td data-label="Polymarket">St. Louis Cardinals 50.5%</td>
                   <td data-label="Model Edge"><span class="edge-pos">+3.2 pts</span></td>
-                  <td data-label="Likely Score">4-5</td>
-                </tr>
-                
-                <tr class="summary-link-row" tabindex="0" onclick="location.href='#game-6e32b700-e7fd-5051-b09d-ee373acc6746'" onkeydown="if (event.key === 'Enter' || event.key === ' ') location.href='#game-6e32b700-e7fd-5051-b09d-ee373acc6746'">
-                  <td data-label="Game"><a href="#game-6e32b700-e7fd-5051-b09d-ee373acc6746"><strong>Boston Red Sox</strong> at <strong>Detroit Tigers</strong></a></td>
-                  <td data-label="Projected Winner">Detroit Tigers <span class="summary-muted">57.0%</span></td>
-                  <td data-label="Polymarket">Detroit Tigers 59.5%</td>
-                  <td data-label="Model Edge"><span class="edge-neg">-2.5 pts</span></td>
+                  <td data-label="Low-Risk Signal"><span class="signal-thin">Thin</span> <span class="summary-muted">12.1</span></td>
                   <td data-label="Likely Score">4-5</td>
                 </tr>
                 
@@ -468,7 +566,17 @@
                   <td data-label="Projected Winner">Arizona Diamondbacks <span class="summary-muted">56.9%</span></td>
                   <td data-label="Polymarket">Arizona Diamondbacks 55.5%</td>
                   <td data-label="Model Edge"><span class="edge-pos">+1.4 pts</span></td>
+                  <td data-label="Low-Risk Signal"><span class="signal-thin">Thin</span> <span class="summary-muted">9.4</span></td>
                   <td data-label="Likely Score">4-5</td>
+                </tr>
+                
+                <tr class="summary-link-row" tabindex="0" onclick="location.href='#game-4f424524-9809-5998-8b96-e46e233dc075'" onkeydown="if (event.key === 'Enter' || event.key === ' ') location.href='#game-4f424524-9809-5998-8b96-e46e233dc075'">
+                  <td data-label="Game"><a href="#game-4f424524-9809-5998-8b96-e46e233dc075"><strong>Texas Rangers</strong> at <strong>New York Yankees</strong></a></td>
+                  <td data-label="Projected Winner">Texas Rangers <span class="summary-muted">51.2%</span></td>
+                  <td data-label="Polymarket">New York Yankees 53.5%</td>
+                  <td data-label="Model Edge"><span class="edge-pos">+4.7 pts</span></td>
+                  <td data-label="Low-Risk Signal"><span class="signal-thin">Thin</span> <span class="summary-muted">5.8</span></td>
+                  <td data-label="Likely Score">5-4</td>
                 </tr>
                 
                 <tr class="summary-link-row" tabindex="0" onclick="location.href='#game-3ac54319-df7c-5378-aeb5-5cede52be7fd'" onkeydown="if (event.key === 'Enter' || event.key === ' ') location.href='#game-3ac54319-df7c-5378-aeb5-5cede52be7fd'">
@@ -476,6 +584,43 @@
                   <td data-label="Projected Winner">Seattle Mariners <span class="summary-muted">55.4%</span></td>
                   <td data-label="Polymarket">Seattle Mariners 54.5%</td>
                   <td data-label="Model Edge"><span class="edge-pos">+0.9 pts</span></td>
+                  <td data-label="Low-Risk Signal"><span class="signal-thin">Thin</span> <span class="summary-muted">4.9</span></td>
+                  <td data-label="Likely Score">4-5</td>
+                </tr>
+                
+                <tr class="summary-link-row" tabindex="0" onclick="location.href='#game-2e1fa38d-1119-5b5e-9920-17f1d54d1676'" onkeydown="if (event.key === 'Enter' || event.key === ' ') location.href='#game-2e1fa38d-1119-5b5e-9920-17f1d54d1676'">
+                  <td data-label="Game"><a href="#game-2e1fa38d-1119-5b5e-9920-17f1d54d1676"><strong>Los Angeles Dodgers</strong> at <strong>Houston Astros</strong></a></td>
+                  <td data-label="Projected Winner">Los Angeles Dodgers <span class="summary-muted">56.7%</span></td>
+                  <td data-label="Polymarket">Los Angeles Dodgers 67.5%</td>
+                  <td data-label="Model Edge"><span class="edge-neg">-10.8 pts</span></td>
+                  <td data-label="Low-Risk Signal"><span class="summary-muted">Pass</span></td>
+                  <td data-label="Likely Score">5-4</td>
+                </tr>
+                
+                <tr class="summary-link-row" tabindex="0" onclick="location.href='#game-9f2ac86d-52ed-5709-ae8f-914d8ab85963'" onkeydown="if (event.key === 'Enter' || event.key === ' ') location.href='#game-9f2ac86d-52ed-5709-ae8f-914d8ab85963'">
+                  <td data-label="Game"><a href="#game-9f2ac86d-52ed-5709-ae8f-914d8ab85963"><strong>Sacramento Athletics</strong> at <strong>Philadelphia Phillies</strong></a></td>
+                  <td data-label="Projected Winner">Philadelphia Phillies <span class="summary-muted">55.9%</span></td>
+                  <td data-label="Polymarket">Philadelphia Phillies 63.5%</td>
+                  <td data-label="Model Edge"><span class="edge-neg">-7.6 pts</span></td>
+                  <td data-label="Low-Risk Signal"><span class="summary-muted">Pass</span></td>
+                  <td data-label="Likely Score">4-5</td>
+                </tr>
+                
+                <tr class="summary-link-row" tabindex="0" onclick="location.href='#game-dc42634a-e6e4-5e75-b1b2-c202db4bc4e8'" onkeydown="if (event.key === 'Enter' || event.key === ' ') location.href='#game-dc42634a-e6e4-5e75-b1b2-c202db4bc4e8'">
+                  <td data-label="Game"><a href="#game-dc42634a-e6e4-5e75-b1b2-c202db4bc4e8"><strong>Cincinnati Reds</strong> at <strong>Chicago Cubs</strong></a></td>
+                  <td data-label="Projected Winner">Chicago Cubs <span class="summary-muted">55.8%</span></td>
+                  <td data-label="Polymarket">Chicago Cubs 60.5%</td>
+                  <td data-label="Model Edge"><span class="edge-neg">-4.7 pts</span></td>
+                  <td data-label="Low-Risk Signal"><span class="summary-muted">Pass</span></td>
+                  <td data-label="Likely Score">4-5</td>
+                </tr>
+                
+                <tr class="summary-link-row" tabindex="0" onclick="location.href='#game-6e32b700-e7fd-5051-b09d-ee373acc6746'" onkeydown="if (event.key === 'Enter' || event.key === ' ') location.href='#game-6e32b700-e7fd-5051-b09d-ee373acc6746'">
+                  <td data-label="Game"><a href="#game-6e32b700-e7fd-5051-b09d-ee373acc6746"><strong>Boston Red Sox</strong> at <strong>Detroit Tigers</strong></a></td>
+                  <td data-label="Projected Winner">Detroit Tigers <span class="summary-muted">57.0%</span></td>
+                  <td data-label="Polymarket">Detroit Tigers 59.5%</td>
+                  <td data-label="Model Edge"><span class="edge-neg">-2.5 pts</span></td>
+                  <td data-label="Low-Risk Signal"><span class="summary-muted">Pass</span></td>
                   <td data-label="Likely Score">4-5</td>
                 </tr>
                 
@@ -484,6 +629,7 @@
                   <td data-label="Projected Winner">Tampa Bay Rays <span class="summary-muted">53.0%</span></td>
                   <td data-label="Polymarket">Tampa Bay Rays 53.5%</td>
                   <td data-label="Model Edge"><span class="edge-neg">-0.5 pts</span></td>
+                  <td data-label="Low-Risk Signal"><span class="summary-muted">Pass</span></td>
                   <td data-label="Likely Score">4-5</td>
                 </tr>
                 </tbody>
