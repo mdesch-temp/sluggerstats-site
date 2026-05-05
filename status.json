@@ -1,9 +1,9 @@
 {
-  "status": "no_confirmed_lineups",
+  "status": "ok",
   "date": "2026-05-05",
   "games": 15,
   "csv": "E:\\SluggerStats 2.0\\predictions\\next_games.csv",
   "html": "E:\\SluggerStats 2.0\\predictions\\next_games.html",
-  "message": "No confirmed SportsBlaze lineups found for 2026-05-05.",
-  "site_preserved_previous_report": true
+  "message": "Wrote predictions for 2026-05-05.",
+  "site_preserved_previous_report": false
 }
