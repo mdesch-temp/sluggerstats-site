@@ -120,7 +120,7 @@
     .summary-table-wrap { overflow-x: auto; }
     .summary-table {
       width: 100%;
-      min-width: 980px;
+      min-width: 1060px;
       border-collapse: collapse;
       font-size: 15px;
     }
@@ -176,6 +176,7 @@
       border-bottom: 1px solid var(--line);
     }
     .eyebrow { color: var(--muted); font-size: 13px; margin-bottom: 4px; overflow-wrap: anywhere; }
+    .game-time { margin-top: 6px; color: var(--muted); font-size: 14px; font-weight: 700; }
     .lineup-note { margin-top: 6px; color: var(--muted); font-size: 14px; }
     .score-chip {
       font-size: clamp(24px, 4vw, 32px);
@@ -465,7 +466,7 @@
   <header>
     <div class="header-meta">
       <span>predictions\next_games.csv</span>
-      <span class="updated">Last updated: May 6, 2026, 2:41 PM ET</span>
+      <span class="updated">Last updated: May 6, 2026, 2:50 PM ET</span>
     </div>
   </header>
   <main>
@@ -488,7 +489,7 @@
                         <article class="edge-pick-card">
                           <div>
                             <strong>Seattle Mariners</strong>
-                            <span>Atlanta Braves at Seattle Mariners</span>
+                            <span>4:10 PM ET | Atlanta Braves at Seattle Mariners</span>
                           </div>
                           <dl>
                             <div><dt>Model</dt><dd>59.4%</dd></div>
@@ -502,7 +503,7 @@
                         <article class="edge-pick-card">
                           <div>
                             <strong>New York Mets</strong>
-                            <span>New York Mets at Colorado Rockies</span>
+                            <span>9:20 PM ET | New York Mets at Colorado Rockies</span>
                           </div>
                           <dl>
                             <div><dt>Model</dt><dd>63.2%</dd></div>
@@ -516,7 +517,7 @@
                         <article class="edge-pick-card">
                           <div>
                             <strong>New York Yankees</strong>
-                            <span>Texas Rangers at New York Yankees</span>
+                            <span>7:05 PM ET | Texas Rangers at New York Yankees</span>
                           </div>
                           <dl>
                             <div><dt>Model</dt><dd>65.5%</dd></div>
@@ -530,7 +531,7 @@
                         <article class="edge-pick-card">
                           <div>
                             <strong>Boston Red Sox</strong>
-                            <span>Boston Red Sox at Detroit Tigers</span>
+                            <span>6:40 PM ET | Boston Red Sox at Detroit Tigers</span>
                           </div>
                           <dl>
                             <div><dt>Model</dt><dd>52.4%</dd></div>
@@ -544,7 +545,7 @@
                         <article class="edge-pick-card">
                           <div>
                             <strong>Los Angeles Angels</strong>
-                            <span>Chicago White Sox at Los Angeles Angels</span>
+                            <span>4:07 PM ET | Chicago White Sox at Los Angeles Angels</span>
                           </div>
                           <dl>
                             <div><dt>Model</dt><dd>50.2%</dd></div>
@@ -563,6 +564,7 @@
           <thead>
             <tr>
               <th>Game</th>
+              <th>Time</th>
               <th>Projected Winner</th>
               <th>Polymarket</th>
               <th>Synthetic Market</th>
@@ -573,6 +575,7 @@
           <tbody>
                 <tr class="summary-link-row" tabindex="0" onclick="location.href='#game-70a5fdaa-9ccb-5fa2-8a7a-739b02873266'" onkeydown="if (event.key === 'Enter' || event.key === ' ') location.href='#game-70a5fdaa-9ccb-5fa2-8a7a-739b02873266'">
                   <td data-label="Game"><a href="#game-70a5fdaa-9ccb-5fa2-8a7a-739b02873266"><strong>Atlanta Braves</strong> at <strong>Seattle Mariners</strong></a></td>
+                  <td data-label="Time">4:10 PM ET</td>
                   <td data-label="Projected Winner">Seattle Mariners <span class="summary-muted">59.4%</span></td>
                   <td data-label="Polymarket">Seattle Mariners 55.5%</td>
                   <td data-label="Synthetic Market">Seattle Mariners 68.7%</td>
@@ -582,6 +585,7 @@
                 
                 <tr class="summary-link-row" tabindex="0" onclick="location.href='#game-ee9d0150-358b-55f6-a6a7-efdf3a7f4c93'" onkeydown="if (event.key === 'Enter' || event.key === ' ') location.href='#game-ee9d0150-358b-55f6-a6a7-efdf3a7f4c93'">
                   <td data-label="Game"><a href="#game-ee9d0150-358b-55f6-a6a7-efdf3a7f4c93"><strong>New York Mets</strong> at <strong>Colorado Rockies</strong></a></td>
+                  <td data-label="Time">9:20 PM ET</td>
                   <td data-label="Projected Winner">New York Mets <span class="summary-muted">63.2%</span></td>
                   <td data-label="Polymarket">New York Mets 60.5%</td>
                   <td data-label="Synthetic Market">New York Mets 63.2%</td>
@@ -591,6 +595,7 @@
                 
                 <tr class="summary-link-row" tabindex="0" onclick="location.href='#game-73e944ec-453d-5c36-8a02-543b5dc7f8b7'" onkeydown="if (event.key === 'Enter' || event.key === ' ') location.href='#game-73e944ec-453d-5c36-8a02-543b5dc7f8b7'">
                   <td data-label="Game"><a href="#game-73e944ec-453d-5c36-8a02-543b5dc7f8b7"><strong>Texas Rangers</strong> at <strong>New York Yankees</strong></a></td>
+                  <td data-label="Time">7:05 PM ET</td>
                   <td data-label="Projected Winner">New York Yankees <span class="summary-muted">65.5%</span></td>
                   <td data-label="Polymarket">New York Yankees 64.5%</td>
                   <td data-label="Synthetic Market">New York Yankees 67.3%</td>
@@ -600,6 +605,7 @@
                 
                 <tr class="summary-link-row" tabindex="0" onclick="location.href='#game-4f7ad036-418c-54bf-8e01-4d9c6ef27005'" onkeydown="if (event.key === 'Enter' || event.key === ' ') location.href='#game-4f7ad036-418c-54bf-8e01-4d9c6ef27005'">
                   <td data-label="Game"><a href="#game-4f7ad036-418c-54bf-8e01-4d9c6ef27005"><strong>Boston Red Sox</strong> at <strong>Detroit Tigers</strong></a></td>
+                  <td data-label="Time">6:40 PM ET</td>
                   <td data-label="Projected Winner">Boston Red Sox <span class="summary-muted">52.4%</span></td>
                   <td data-label="Polymarket">Detroit Tigers 50.5%</td>
                   <td data-label="Synthetic Market">Detroit Tigers 51.5%</td>
@@ -609,6 +615,7 @@
                 
                 <tr class="summary-link-row" tabindex="0" onclick="location.href='#game-d07e168a-3dec-5360-9316-35f4696845e8'" onkeydown="if (event.key === 'Enter' || event.key === ' ') location.href='#game-d07e168a-3dec-5360-9316-35f4696845e8'">
                   <td data-label="Game"><a href="#game-d07e168a-3dec-5360-9316-35f4696845e8"><strong>Chicago White Sox</strong> at <strong>Los Angeles Angels</strong></a></td>
+                  <td data-label="Time">4:07 PM ET</td>
                   <td data-label="Projected Winner">Los Angeles Angels <span class="summary-muted">50.2%</span></td>
                   <td data-label="Polymarket">Chicago White Sox 51.5%</td>
                   <td data-label="Synthetic Market">Los Angeles Angels 51.6%</td>
@@ -618,6 +625,7 @@
                 
                 <tr class="summary-link-row" tabindex="0" onclick="location.href='#game-13835c6d-ce91-53dd-af45-c8b31d34f817'" onkeydown="if (event.key === 'Enter' || event.key === ' ') location.href='#game-13835c6d-ce91-53dd-af45-c8b31d34f817'">
                   <td data-label="Game"><a href="#game-13835c6d-ce91-53dd-af45-c8b31d34f817"><strong>Milwaukee Brewers</strong> at <strong>St. Louis Cardinals</strong></a></td>
+                  <td data-label="Time">1:15 PM ET</td>
                   <td data-label="Projected Winner">Milwaukee Brewers <span class="summary-muted">53.0%</span></td>
                   <td data-label="Polymarket">Milwaukee Brewers 93.5%</td>
                   <td data-label="Synthetic Market">Milwaukee Brewers 67.7%</td>
@@ -627,6 +635,7 @@
                 
                 <tr class="summary-link-row" tabindex="0" onclick="location.href='#game-7bf80cf5-ed98-57e7-ac2b-61bee3332fa5'" onkeydown="if (event.key === 'Enter' || event.key === ' ') location.href='#game-7bf80cf5-ed98-57e7-ac2b-61bee3332fa5'">
                   <td data-label="Game"><a href="#game-7bf80cf5-ed98-57e7-ac2b-61bee3332fa5"><strong>Toronto Blue Jays</strong> at <strong>Tampa Bay Rays</strong></a></td>
+                  <td data-label="Time">1:10 PM ET</td>
                   <td data-label="Projected Winner">Tampa Bay Rays <span class="summary-muted">54.7%</span></td>
                   <td data-label="Polymarket">Tampa Bay Rays 88.5%</td>
                   <td data-label="Synthetic Market">Tampa Bay Rays 72.3%</td>
@@ -636,6 +645,7 @@
                 
                 <tr class="summary-link-row" tabindex="0" onclick="location.href='#game-1c406587-980b-5b80-9d4b-f67d5df282ac'" onkeydown="if (event.key === 'Enter' || event.key === ' ') location.href='#game-1c406587-980b-5b80-9d4b-f67d5df282ac'">
                   <td data-label="Game"><a href="#game-1c406587-980b-5b80-9d4b-f67d5df282ac"><strong>Los Angeles Dodgers</strong> at <strong>Houston Astros</strong></a></td>
+                  <td data-label="Time">2:10 PM ET</td>
                   <td data-label="Projected Winner">Los Angeles Dodgers <span class="summary-muted">52.4%</span></td>
                   <td data-label="Polymarket">Los Angeles Dodgers 58.5%</td>
                   <td data-label="Synthetic Market">Los Angeles Dodgers 60.1%</td>
@@ -645,6 +655,7 @@
                 
                 <tr class="summary-link-row" tabindex="0" onclick="location.href='#game-9fff125c-218e-53b9-b39f-b29d8097a8cd'" onkeydown="if (event.key === 'Enter' || event.key === ' ') location.href='#game-9fff125c-218e-53b9-b39f-b29d8097a8cd'">
                   <td data-label="Game"><a href="#game-9fff125c-218e-53b9-b39f-b29d8097a8cd"><strong>Cleveland Guardians</strong> at <strong>Kansas City Royals</strong></a></td>
+                  <td data-label="Time">7:40 PM ET</td>
                   <td data-label="Projected Winner">Kansas City Royals <span class="summary-muted">53.0%</span></td>
                   <td data-label="Polymarket">Kansas City Royals 56.5%</td>
                   <td data-label="Synthetic Market">Kansas City Royals 59.6%</td>
@@ -654,6 +665,7 @@
                 
                 <tr class="summary-link-row" tabindex="0" onclick="location.href='#game-ba546146-a9a6-50fe-8a55-4b1c03ae96aa'" onkeydown="if (event.key === 'Enter' || event.key === ' ') location.href='#game-ba546146-a9a6-50fe-8a55-4b1c03ae96aa'">
                   <td data-label="Game"><a href="#game-ba546146-a9a6-50fe-8a55-4b1c03ae96aa"><strong>Pittsburgh Pirates</strong> at <strong>Arizona Diamondbacks</strong></a></td>
+                  <td data-label="Time">9:40 PM ET</td>
                   <td data-label="Projected Winner">Pittsburgh Pirates <span class="summary-muted">50.0%</span></td>
                   <td data-label="Polymarket">Pittsburgh Pirates 53.5%</td>
                   <td data-label="Synthetic Market">Pittsburgh Pirates 53.9%</td>
@@ -663,6 +675,7 @@
                 
                 <tr class="summary-link-row" tabindex="0" onclick="location.href='#game-6e02a797-2186-597b-94b1-60d10e1ad4f2'" onkeydown="if (event.key === 'Enter' || event.key === ' ') location.href='#game-6e02a797-2186-597b-94b1-60d10e1ad4f2'">
                   <td data-label="Game"><a href="#game-6e02a797-2186-597b-94b1-60d10e1ad4f2"><strong>Minnesota Twins</strong> at <strong>Washington Nationals</strong></a></td>
+                  <td data-label="Time">6:45 PM ET</td>
                   <td data-label="Projected Winner">Minnesota Twins <span class="summary-muted">52.3%</span></td>
                   <td data-label="Polymarket">Minnesota Twins 55.5%</td>
                   <td data-label="Synthetic Market">Minnesota Twins 57.6%</td>
@@ -672,6 +685,7 @@
                 
                 <tr class="summary-link-row" tabindex="0" onclick="location.href='#game-f0df3fc5-c3dd-5a72-bc2a-51020d06fa5b'" onkeydown="if (event.key === 'Enter' || event.key === ' ') location.href='#game-f0df3fc5-c3dd-5a72-bc2a-51020d06fa5b'">
                   <td data-label="Game"><a href="#game-f0df3fc5-c3dd-5a72-bc2a-51020d06fa5b"><strong>Cincinnati Reds</strong> at <strong>Chicago Cubs</strong></a></td>
+                  <td data-label="Time">7:40 PM ET</td>
                   <td data-label="Projected Winner">Chicago Cubs <span class="summary-muted">58.6%</span></td>
                   <td data-label="Polymarket">Chicago Cubs 61.5%</td>
                   <td data-label="Synthetic Market">Cincinnati Reds 52.0%</td>
@@ -681,6 +695,7 @@
                 
                 <tr class="summary-link-row" tabindex="0" onclick="location.href='#game-e34ffd36-6bdf-5265-9740-663fbe005dba'" onkeydown="if (event.key === 'Enter' || event.key === ' ') location.href='#game-e34ffd36-6bdf-5265-9740-663fbe005dba'">
                   <td data-label="Game"><a href="#game-e34ffd36-6bdf-5265-9740-663fbe005dba"><strong>Sacramento Athletics</strong> at <strong>Philadelphia Phillies</strong></a></td>
+                  <td data-label="Time">6:40 PM ET</td>
                   <td data-label="Projected Winner">Philadelphia Phillies <span class="summary-muted">58.9%</span></td>
                   <td data-label="Polymarket">Philadelphia Phillies 60.5%</td>
                   <td data-label="Synthetic Market">Philadelphia Phillies 55.8%</td>
@@ -690,6 +705,7 @@
                 
                 <tr class="summary-link-row" tabindex="0" onclick="location.href='#game-98b50dde-2d06-55ba-9530-42f815b01828'" onkeydown="if (event.key === 'Enter' || event.key === ' ') location.href='#game-98b50dde-2d06-55ba-9530-42f815b01828'">
                   <td data-label="Game"><a href="#game-98b50dde-2d06-55ba-9530-42f815b01828"><strong>Baltimore Orioles</strong> at <strong>Miami Marlins</strong></a></td>
+                  <td data-label="Time">6:40 PM ET</td>
                   <td data-label="Projected Winner">Miami Marlins <span class="summary-muted">54.2%</span></td>
                   <td data-label="Polymarket">Miami Marlins 55.5%</td>
                   <td data-label="Synthetic Market">Baltimore Orioles 56.0%</td>
@@ -699,6 +715,7 @@
                 
                 <tr class="summary-link-row" tabindex="0" onclick="location.href='#game-9553348f-1cf8-5750-92cf-edaeb8a62d19'" onkeydown="if (event.key === 'Enter' || event.key === ' ') location.href='#game-9553348f-1cf8-5750-92cf-edaeb8a62d19'">
                   <td data-label="Game"><a href="#game-9553348f-1cf8-5750-92cf-edaeb8a62d19"><strong>San Diego Padres</strong> at <strong>San Francisco Giants</strong></a></td>
+                  <td data-label="Time">3:45 PM ET</td>
                   <td data-label="Projected Winner">San Francisco Giants <span class="summary-muted">50.1%</span></td>
                   <td data-label="Polymarket">San Francisco Giants 50.5%</td>
                   <td data-label="Synthetic Market">San Diego Padres 57.3%</td>
@@ -716,6 +733,7 @@
         <div>
           <p class="eyebrow">7bf80cf5-ed98-57e7-ac2b-61bee3332fa5</p>
           <h2>Toronto Blue Jays at Tampa Bay Rays</h2>
+          <p class="game-time">1:10 PM ET</p>
           <p class="lineup-note">Lineup built from SportsBlaze in-game boxscore roster data; batting order is inferred.</p>
         </div>
         <div class="score-chip">4-5</div>
@@ -1350,6 +1368,7 @@
         <div>
           <p class="eyebrow">13835c6d-ce91-53dd-af45-c8b31d34f817</p>
           <h2>Milwaukee Brewers at St. Louis Cardinals</h2>
+          <p class="game-time">1:15 PM ET</p>
           <p class="lineup-note">Lineup built from SportsBlaze in-game boxscore roster data; batting order is inferred.</p>
         </div>
         <div class="score-chip">4-5</div>
@@ -1984,6 +2003,7 @@
         <div>
           <p class="eyebrow">1c406587-980b-5b80-9d4b-f67d5df282ac</p>
           <h2>Los Angeles Dodgers at Houston Astros</h2>
+          <p class="game-time">2:10 PM ET</p>
           <p class="lineup-note">Lineup built from SportsBlaze in-game boxscore roster data; batting order is inferred.</p>
         </div>
         <div class="score-chip">4-3</div>
@@ -2618,6 +2638,7 @@
         <div>
           <p class="eyebrow">9553348f-1cf8-5750-92cf-edaeb8a62d19</p>
           <h2>San Diego Padres at San Francisco Giants</h2>
+          <p class="game-time">3:45 PM ET</p>
           <p class="lineup-note">Probable lineup built from SportsBlaze roster data; batting order is estimated.</p>
         </div>
         <div class="score-chip">4-5</div>
@@ -3252,6 +3273,7 @@
         <div>
           <p class="eyebrow">d07e168a-3dec-5360-9316-35f4696845e8</p>
           <h2>Chicago White Sox at Los Angeles Angels</h2>
+          <p class="game-time">4:07 PM ET</p>
           <p class="lineup-note">Probable lineup built from SportsBlaze roster data; batting order is estimated.</p>
         </div>
         <div class="score-chip">4-5</div>
@@ -3886,6 +3908,7 @@
         <div>
           <p class="eyebrow">70a5fdaa-9ccb-5fa2-8a7a-739b02873266</p>
           <h2>Atlanta Braves at Seattle Mariners</h2>
+          <p class="game-time">4:10 PM ET</p>
           <p class="lineup-note">Probable lineup built from SportsBlaze roster data; batting order is estimated.</p>
         </div>
         <div class="score-chip">4-5</div>
@@ -4520,6 +4543,7 @@
         <div>
           <p class="eyebrow">e34ffd36-6bdf-5265-9740-663fbe005dba</p>
           <h2>Sacramento Athletics at Philadelphia Phillies</h2>
+          <p class="game-time">6:40 PM ET</p>
           <p class="lineup-note">Probable lineup built from SportsBlaze roster data; batting order is estimated.</p>
         </div>
         <div class="score-chip">4-5</div>
@@ -5154,6 +5178,7 @@
         <div>
           <p class="eyebrow">98b50dde-2d06-55ba-9530-42f815b01828</p>
           <h2>Baltimore Orioles at Miami Marlins</h2>
+          <p class="game-time">6:40 PM ET</p>
           <p class="lineup-note">Probable lineup built from SportsBlaze roster data; batting order is estimated.</p>
         </div>
         <div class="score-chip">4-5</div>
@@ -5788,6 +5813,7 @@
         <div>
           <p class="eyebrow">4f7ad036-418c-54bf-8e01-4d9c6ef27005</p>
           <h2>Boston Red Sox at Detroit Tigers</h2>
+          <p class="game-time">6:40 PM ET</p>
           <p class="lineup-note">Probable lineup built from SportsBlaze roster data; batting order is estimated.</p>
         </div>
         <div class="score-chip">4-5</div>
@@ -6422,6 +6448,7 @@
         <div>
           <p class="eyebrow">6e02a797-2186-597b-94b1-60d10e1ad4f2</p>
           <h2>Minnesota Twins at Washington Nationals</h2>
+          <p class="game-time">6:45 PM ET</p>
           <p class="lineup-note">Probable lineup built from SportsBlaze roster data; batting order is estimated.</p>
         </div>
         <div class="score-chip">5-4</div>
@@ -7056,6 +7083,7 @@
         <div>
           <p class="eyebrow">73e944ec-453d-5c36-8a02-543b5dc7f8b7</p>
           <h2>Texas Rangers at New York Yankees</h2>
+          <p class="game-time">7:05 PM ET</p>
           <p class="lineup-note">Probable lineup built from SportsBlaze roster data; batting order is estimated.</p>
         </div>
         <div class="score-chip">4-5</div>
@@ -7690,6 +7718,7 @@
         <div>
           <p class="eyebrow">f0df3fc5-c3dd-5a72-bc2a-51020d06fa5b</p>
           <h2>Cincinnati Reds at Chicago Cubs</h2>
+          <p class="game-time">7:40 PM ET</p>
           <p class="lineup-note">Probable lineup built from SportsBlaze roster data; batting order is estimated.</p>
         </div>
         <div class="score-chip">4-5</div>
@@ -8324,6 +8353,7 @@
         <div>
           <p class="eyebrow">9fff125c-218e-53b9-b39f-b29d8097a8cd</p>
           <h2>Cleveland Guardians at Kansas City Royals</h2>
+          <p class="game-time">7:40 PM ET</p>
           <p class="lineup-note">Probable lineup built from SportsBlaze roster data; batting order is estimated.</p>
         </div>
         <div class="score-chip">4-5</div>
@@ -8958,6 +8988,7 @@
         <div>
           <p class="eyebrow">ee9d0150-358b-55f6-a6a7-efdf3a7f4c93</p>
           <h2>New York Mets at Colorado Rockies</h2>
+          <p class="game-time">9:20 PM ET</p>
           <p class="lineup-note">Probable lineup built from SportsBlaze roster data; batting order is estimated.</p>
         </div>
         <div class="score-chip">6-4</div>
@@ -9592,6 +9623,7 @@
         <div>
           <p class="eyebrow">ba546146-a9a6-50fe-8a55-4b1c03ae96aa</p>
           <h2>Pittsburgh Pirates at Arizona Diamondbacks</h2>
+          <p class="game-time">9:40 PM ET</p>
           <p class="lineup-note">Probable lineup built from SportsBlaze roster data; batting order is estimated.</p>
         </div>
         <div class="score-chip">5-4</div>
