@@ -1,9 +1,9 @@
 {
   "status": "ok",
-  "date": "2026-05-05",
-  "games": 6,
+  "date": "2026-05-06",
+  "games": 15,
   "csv": "E:\\SluggerStats 2.0\\predictions\\next_games.csv",
   "html": "E:\\SluggerStats 2.0\\predictions\\next_games.html",
-  "message": "Wrote predictions for 2026-05-05.",
+  "message": "Wrote predictions for 2026-05-06.",
   "site_preserved_previous_report": false
 }
