@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>SluggerStats Prediction Report</title>
+  <title>predictions\next_games.csv</title>
   <style>
     :root {
       --ink: #17202a;
@@ -34,7 +34,16 @@
     h2 { font-size: clamp(22px, 3.5vw, 30px); }
     h3 { font-size: clamp(18px, 2.5vw, 22px); margin-bottom: 12px; }
     h4 { font-size: clamp(17px, 2.2vw, 20px); margin-bottom: 10px; }
-    .source { margin-top: 6px; color: var(--muted); font-size: 14px; overflow-wrap: anywhere; }
+    .header-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      color: var(--muted);
+      font-size: 14px;
+      overflow-wrap: anywhere;
+    }
+    .updated { white-space: nowrap; }
     main { padding: 18px clamp(12px, 3vw, 36px) 36px; }
     .summary-panel {
       background: #ffffff;
@@ -111,7 +120,7 @@
     .summary-table-wrap { overflow-x: auto; }
     .summary-table {
       width: 100%;
-      min-width: 1120px;
+      min-width: 980px;
       border-collapse: collapse;
       font-size: 15px;
     }
@@ -359,6 +368,12 @@
     @media (max-width: 640px) {
       body { font-size: 18px; }
       header { padding: 20px 14px; }
+      .header-meta {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 4px;
+      }
+      .updated { white-space: normal; }
       main { padding: 12px 10px 28px; }
       .summary-panel { border-radius: 6px; margin-bottom: 14px; }
       .summary-header {
@@ -448,8 +463,10 @@
 </head>
 <body>
   <header>
-    <h1>SluggerStats Prediction Report</h1>
-    <p class="source">Source: E:\SluggerStats 2.0\predictions\next_games.csv</p>
+    <div class="header-meta">
+      <span>predictions\next_games.csv</span>
+      <span class="updated">Last updated: May 6, 2026, 4:16 AM ET</span>
+    </div>
   </header>
   <main>
     <section class="summary-panel">
@@ -551,7 +568,6 @@
               <th>Synthetic Market</th>
               <th>Signal Edge</th>
               <th>Low-Risk Signal</th>
-              <th>Likely Score</th>
             </tr>
           </thead>
           <tbody>
@@ -562,7 +578,6 @@
                   <td data-label="Synthetic Market">New York Mets 63.2%</td>
                   <td data-label="Signal Edge"><span class="edge-pos">+4.7 pts</span></td>
                   <td data-label="Low-Risk Signal"><span class="signal-best">Best</span> <span class="summary-muted">61.7</span></td>
-                  <td data-label="Likely Score">6-4</td>
                 </tr>
                 
                 <tr class="summary-link-row" tabindex="0" onclick="location.href='#game-70a5fdaa-9ccb-5fa2-8a7a-739b02873266'" onkeydown="if (event.key === 'Enter' || event.key === ' ') location.href='#game-70a5fdaa-9ccb-5fa2-8a7a-739b02873266'">
@@ -572,7 +587,6 @@
                   <td data-label="Synthetic Market">Seattle Mariners 56.0%</td>
                   <td data-label="Signal Edge"><span class="edge-pos">+2.9 pts</span></td>
                   <td data-label="Low-Risk Signal"><span class="signal-lean">Lean</span> <span class="summary-muted">24.9</span></td>
-                  <td data-label="Likely Score">4-5</td>
                 </tr>
                 
                 <tr class="summary-link-row" tabindex="0" onclick="location.href='#game-73e944ec-453d-5c36-8a02-543b5dc7f8b7'" onkeydown="if (event.key === 'Enter' || event.key === ' ') location.href='#game-73e944ec-453d-5c36-8a02-543b5dc7f8b7'">
@@ -582,7 +596,6 @@
                   <td data-label="Synthetic Market">New York Yankees 63.2%</td>
                   <td data-label="Signal Edge"><span class="edge-pos">+1.8 pts</span></td>
                   <td data-label="Low-Risk Signal"><span class="signal-thin">Thin</span> <span class="summary-muted">26.9</span></td>
-                  <td data-label="Likely Score">4-5</td>
                 </tr>
                 
                 <tr class="summary-link-row" tabindex="0" onclick="location.href='#game-ba546146-a9a6-50fe-8a55-4b1c03ae96aa'" onkeydown="if (event.key === 'Enter' || event.key === ' ') location.href='#game-ba546146-a9a6-50fe-8a55-4b1c03ae96aa'">
@@ -592,7 +605,6 @@
                   <td data-label="Synthetic Market">Pittsburgh Pirates 51.0%</td>
                   <td data-label="Signal Edge"><span class="edge-pos">+8.0 pts</span></td>
                   <td data-label="Low-Risk Signal"><span class="signal-thin">Thin</span> <span class="summary-muted">4.1</span></td>
-                  <td data-label="Likely Score">5-4</td>
                 </tr>
                 
                 <tr class="summary-link-row" tabindex="0" onclick="location.href='#game-4f7ad036-418c-54bf-8e01-4d9c6ef27005'" onkeydown="if (event.key === 'Enter' || event.key === ' ') location.href='#game-4f7ad036-418c-54bf-8e01-4d9c6ef27005'">
@@ -602,7 +614,6 @@
                   <td data-label="Synthetic Market">Boston Red Sox 50.6%</td>
                   <td data-label="Signal Edge"><span class="edge-pos">+2.8 pts</span></td>
                   <td data-label="Low-Risk Signal"><span class="signal-thin">Thin</span> <span class="summary-muted">3.7</span></td>
-                  <td data-label="Likely Score">4-5</td>
                 </tr>
                 
                 <tr class="summary-link-row" tabindex="0" onclick="location.href='#game-13835c6d-ce91-53dd-af45-c8b31d34f817'" onkeydown="if (event.key === 'Enter' || event.key === ' ') location.href='#game-13835c6d-ce91-53dd-af45-c8b31d34f817'">
@@ -612,7 +623,6 @@
                   <td data-label="Synthetic Market">St. Louis Cardinals 50.2%</td>
                   <td data-label="Signal Edge"><span class="edge-pos">+0.8 pts</span></td>
                   <td data-label="Low-Risk Signal"><span class="signal-thin">Thin</span> <span class="summary-muted">1.0</span></td>
-                  <td data-label="Likely Score">4-5</td>
                 </tr>
                 
                 <tr class="summary-link-row" tabindex="0" onclick="location.href='#game-d07e168a-3dec-5360-9316-35f4696845e8'" onkeydown="if (event.key === 'Enter' || event.key === ' ') location.href='#game-d07e168a-3dec-5360-9316-35f4696845e8'">
@@ -622,7 +632,6 @@
                   <td data-label="Synthetic Market">Los Angeles Angels 53.0%</td>
                   <td data-label="Signal Edge"><span class="edge-pos">+1.1 pts</span></td>
                   <td data-label="Low-Risk Signal"><span class="signal-thin">Thin</span> <span class="summary-muted">0.7</span></td>
-                  <td data-label="Likely Score">4-5</td>
                 </tr>
                 
                 <tr class="summary-link-row" tabindex="0" onclick="location.href='#game-9553348f-1cf8-5750-92cf-edaeb8a62d19'" onkeydown="if (event.key === 'Enter' || event.key === ' ') location.href='#game-9553348f-1cf8-5750-92cf-edaeb8a62d19'">
@@ -632,7 +641,6 @@
                   <td data-label="Synthetic Market">San Diego Padres 51.4%</td>
                   <td data-label="Signal Edge"><span class="edge-pos">+0.3 pts</span></td>
                   <td data-label="Low-Risk Signal"><span class="signal-thin">Thin</span> <span class="summary-muted">0.5</span></td>
-                  <td data-label="Likely Score">5-4</td>
                 </tr>
                 
                 <tr class="summary-link-row" tabindex="0" onclick="location.href='#game-1c406587-980b-5b80-9d4b-f67d5df282ac'" onkeydown="if (event.key === 'Enter' || event.key === ' ') location.href='#game-1c406587-980b-5b80-9d4b-f67d5df282ac'">
@@ -642,7 +650,6 @@
                   <td data-label="Synthetic Market">Los Angeles Dodgers 63.6%</td>
                   <td data-label="Signal Edge"><span class="edge-neg">-12.4 pts</span></td>
                   <td data-label="Low-Risk Signal"><span class="summary-muted">Pass</span></td>
-                  <td data-label="Likely Score">4-3</td>
                 </tr>
                 
                 <tr class="summary-link-row" tabindex="0" onclick="location.href='#game-7bf80cf5-ed98-57e7-ac2b-61bee3332fa5'" onkeydown="if (event.key === 'Enter' || event.key === ' ') location.href='#game-7bf80cf5-ed98-57e7-ac2b-61bee3332fa5'">
@@ -652,7 +659,6 @@
                   <td data-label="Synthetic Market">Tampa Bay Rays 58.6%</td>
                   <td data-label="Signal Edge"><span class="edge-neg">-3.3 pts</span></td>
                   <td data-label="Low-Risk Signal"><span class="summary-muted">Pass</span></td>
-                  <td data-label="Likely Score">4-5</td>
                 </tr>
                 
                 <tr class="summary-link-row" tabindex="0" onclick="location.href='#game-9fff125c-218e-53b9-b39f-b29d8097a8cd'" onkeydown="if (event.key === 'Enter' || event.key === ' ') location.href='#game-9fff125c-218e-53b9-b39f-b29d8097a8cd'">
@@ -662,7 +668,6 @@
                   <td data-label="Synthetic Market">Kansas City Royals 56.1%</td>
                   <td data-label="Signal Edge"><span class="edge-neg">-2.7 pts</span></td>
                   <td data-label="Low-Risk Signal"><span class="summary-muted">Pass</span></td>
-                  <td data-label="Likely Score">4-5</td>
                 </tr>
                 
                 <tr class="summary-link-row" tabindex="0" onclick="location.href='#game-e34ffd36-6bdf-5265-9740-663fbe005dba'" onkeydown="if (event.key === 'Enter' || event.key === ' ') location.href='#game-e34ffd36-6bdf-5265-9740-663fbe005dba'">
@@ -672,7 +677,6 @@
                   <td data-label="Synthetic Market">Philadelphia Phillies 58.4%</td>
                   <td data-label="Signal Edge"><span class="edge-neg">-2.5 pts</span></td>
                   <td data-label="Low-Risk Signal"><span class="summary-muted">Pass</span></td>
-                  <td data-label="Likely Score">4-5</td>
                 </tr>
                 
                 <tr class="summary-link-row" tabindex="0" onclick="location.href='#game-6e02a797-2186-597b-94b1-60d10e1ad4f2'" onkeydown="if (event.key === 'Enter' || event.key === ' ') location.href='#game-6e02a797-2186-597b-94b1-60d10e1ad4f2'">
@@ -682,7 +686,6 @@
                   <td data-label="Synthetic Market">Minnesota Twins 57.0%</td>
                   <td data-label="Signal Edge"><span class="edge-neg">-2.1 pts</span></td>
                   <td data-label="Low-Risk Signal"><span class="summary-muted">Pass</span></td>
-                  <td data-label="Likely Score">5-4</td>
                 </tr>
                 
                 <tr class="summary-link-row" tabindex="0" onclick="location.href='#game-f0df3fc5-c3dd-5a72-bc2a-51020d06fa5b'" onkeydown="if (event.key === 'Enter' || event.key === ' ') location.href='#game-f0df3fc5-c3dd-5a72-bc2a-51020d06fa5b'">
@@ -692,7 +695,6 @@
                   <td data-label="Synthetic Market">Chicago Cubs 56.9%</td>
                   <td data-label="Signal Edge"><span class="edge-neg">-2.1 pts</span></td>
                   <td data-label="Low-Risk Signal"><span class="summary-muted">Pass</span></td>
-                  <td data-label="Likely Score">4-5</td>
                 </tr>
                 
                 <tr class="summary-link-row" tabindex="0" onclick="location.href='#game-98b50dde-2d06-55ba-9530-42f815b01828'" onkeydown="if (event.key === 'Enter' || event.key === ' ') location.href='#game-98b50dde-2d06-55ba-9530-42f815b01828'">
@@ -702,7 +704,6 @@
                   <td data-label="Synthetic Market">Miami Marlins 52.6%</td>
                   <td data-label="Signal Edge"><span class="edge-neg">-0.4 pts</span></td>
                   <td data-label="Low-Risk Signal"><span class="summary-muted">Pass</span></td>
-                  <td data-label="Likely Score">4-5</td>
                 </tr>
                 </tbody>
         </table>
