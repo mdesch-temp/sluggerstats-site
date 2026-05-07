@@ -6,14 +6,19 @@
   <title>predictions\next_games.csv</title>
   <style>
     :root {
-      --ink: #17202a;
-      --muted: #5f6c7b;
-      --line: #d8dee7;
-      --panel: #ffffff;
-      --band: #f4f7fb;
-      --home: #0b7a75;
-      --away: #b53f3f;
-      --accent: #1976d2;
+      --ink: #f2f6f3;
+      --muted: #a8b3ad;
+      --line: #343a3a;
+      --panel: #181b1b;
+      --panel-soft: #202424;
+      --table-head: #222927;
+      --hover: #26302d;
+      --band: #101312;
+      --meter: #303737;
+      --home: #2dd4bf;
+      --away: #f87171;
+      --accent: #6fb8ff;
+      --thin: #f3c969;
     }
     * { box-sizing: border-box; }
     body {
@@ -27,7 +32,7 @@
     }
     header {
       padding: 24px clamp(16px, 4vw, 48px);
-      background: #ffffff;
+      background: var(--panel);
       border-bottom: 1px solid var(--line);
     }
     h1, h2, h3, h4, p { margin: 0; }
@@ -47,7 +52,7 @@
     .updated { white-space: nowrap; }
     main { padding: 18px clamp(12px, 3vw, 36px) 36px; }
     .summary-panel {
-      background: #ffffff;
+      background: var(--panel);
       border: 1px solid var(--line);
       border-radius: 8px;
       margin-bottom: 18px;
@@ -69,7 +74,7 @@
     .edge-picks {
       padding: 16px 18px;
       border-bottom: 1px solid var(--line);
-      background: #fbfcfe;
+      background: var(--panel-soft);
     }
     .edge-picks-title {
       display: flex;
@@ -95,20 +100,20 @@
       min-width: 900px;
       border-collapse: collapse;
       font-size: 14px;
-      background: #ffffff;
+      background: var(--panel);
       border: 1px solid var(--line);
       border-radius: 8px;
       overflow: hidden;
     }
     .best-bets-table th,
     .best-bets-table td {
-      border-bottom: 1px solid #dfe5ee;
+      border-bottom: 1px solid var(--line);
       padding: 10px 12px;
       text-align: left;
       vertical-align: middle;
     }
     .best-bets-table th {
-      background: #f7f9fc;
+      background: var(--table-head);
       color: var(--muted);
       font-size: 12px;
       letter-spacing: .04em;
@@ -133,7 +138,7 @@
       padding: 12px;
       border: 1px solid var(--line);
       border-radius: 8px;
-      background: #ffffff;
+      background: var(--panel);
     }
     .edge-pick-card span {
       display: block;
@@ -168,12 +173,12 @@
     .summary-table th,
     .summary-table td {
       padding: 12px 14px;
-      border-bottom: 1px solid #dfe5ee;
+      border-bottom: 1px solid var(--line);
       text-align: left;
       vertical-align: middle;
     }
     .summary-table th {
-      background: #f7f9fc;
+      background: var(--table-head);
       color: var(--muted);
       font-size: 12px;
       letter-spacing: .04em;
@@ -186,7 +191,7 @@
     }
     .summary-link-row:hover,
     .summary-link-row:focus {
-      background: #f7fbff;
+      background: var(--hover);
       outline: none;
     }
     .summary-table a {
@@ -199,9 +204,9 @@
     .edge-neg { color: var(--away); font-weight: 700; }
     .signal-best { color: var(--home); font-weight: 800; }
     .signal-lean { color: var(--accent); font-weight: 800; }
-    .signal-thin { color: #8a6d1f; font-weight: 800; }
+    .signal-thin { color: var(--thin); font-weight: 800; }
     .game-section {
-      background: #ffffff;
+      background: var(--panel);
       border: 1px solid var(--line);
       border-radius: 8px;
       margin-bottom: 18px;
@@ -233,7 +238,7 @@
       border: 1px solid var(--line);
       border-radius: 6px;
       padding: 8px 12px;
-      background: #fbfcfe;
+      background: var(--panel-soft);
     }
     .winner-chip span {
       color: var(--muted);
@@ -265,12 +270,12 @@
     }
     .team-line { display: flex; justify-content: space-between; gap: 12px; font-size: 16px; }
     .team-line-right { text-align: right; }
-    .bar { height: 16px; background: #e8edf3; border-radius: 999px; overflow: hidden; }
+    .bar { height: 16px; background: var(--meter); border-radius: 999px; overflow: hidden; }
     .matchup-bar {
       grid-column: 1 / -1;
       display: flex;
       gap: 0;
-      background: #e8edf3;
+      background: var(--meter);
     }
     .bar-fill { height: 100%; }
     .bar-fill.away { background: var(--away); }
@@ -278,7 +283,7 @@
     .market-panel {
       padding: 16px 18px;
       border-bottom: 1px solid var(--line);
-      background: #fbfcfe;
+      background: var(--panel-soft);
     }
     .market-title {
       display: flex;
@@ -303,7 +308,7 @@
       padding: 12px;
       border: 1px solid var(--line);
       border-radius: 8px;
-      background: #ffffff;
+      background: var(--panel);
     }
     .market-card span {
       display: block;
@@ -340,13 +345,13 @@
     }
     .total-runs-table th,
     .total-runs-table td {
-      border-bottom: 1px solid #dfe5ee;
+      border-bottom: 1px solid var(--line);
       padding: 9px 8px;
       text-align: left;
       vertical-align: middle;
     }
     .total-runs-table thead th {
-      background: #f7f9fc;
+      background: var(--table-head);
       color: var(--muted);
       font-size: 12px;
       letter-spacing: .04em;
@@ -365,7 +370,7 @@
       height: 10px;
       overflow: hidden;
       border-radius: 999px;
-      background: #e8edf3;
+      background: var(--meter);
     }
     .prob-meter span {
       display: block;
@@ -384,7 +389,7 @@
     .axis { display: flex; justify-content: space-between; color: var(--muted); font-size: 12px; margin-top: 2px; }
     .batter-dropdown {
       border-top: 1px solid var(--line);
-      background: #ffffff;
+      background: var(--panel);
     }
     .batter-dropdown summary {
       display: flex;
@@ -435,7 +440,7 @@
   <header>
     <div class="header-meta">
       <span>predictions\next_games.csv</span>
-      <span class="updated">Last updated: May 6, 2026, 8:37 PM ET</span>
+      <span class="updated">Last updated: May 6, 2026, 9:02 PM ET</span>
     </div>
   </header>
   <main>
