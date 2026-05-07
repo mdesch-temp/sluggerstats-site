@@ -219,6 +219,33 @@
     .eyebrow { color: var(--muted); font-size: 13px; margin-bottom: 4px; overflow-wrap: anywhere; }
     .game-time { margin-top: 6px; color: var(--muted); font-size: 14px; font-weight: 700; }
     .lineup-note { margin-top: 6px; color: var(--muted); font-size: 14px; }
+    .game-header-actions {
+      display: flex;
+      align-items: stretch;
+      gap: 10px;
+      flex: 0 0 auto;
+    }
+    .winner-chip {
+      display: grid;
+      align-content: center;
+      gap: 3px;
+      min-width: 190px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 8px 12px;
+      background: #fbfcfe;
+    }
+    .winner-chip span {
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+    .winner-chip strong {
+      font-size: 17px;
+      overflow-wrap: anywhere;
+    }
     .score-chip {
       font-size: clamp(24px, 4vw, 32px);
       font-weight: 700;
@@ -408,7 +435,7 @@
   <header>
     <div class="header-meta">
       <span>predictions\next_games.csv</span>
-      <span class="updated">Last updated: May 6, 2026, 8:29 PM ET</span>
+      <span class="updated">Last updated: May 6, 2026, 8:37 PM ET</span>
     </div>
   </header>
   <main>
@@ -761,7 +788,13 @@
           <p class="game-time">9:20 PM ET</p>
           <p class="lineup-note">Confirmed batting order from MLB Stats because SportsBlaze has not posted lineup data yet.</p>
         </div>
-        <div class="score-chip">6-5</div>
+        <div class="game-header-actions">
+          <div class="winner-chip">
+            <span>Projected Winner</span>
+            <strong>New York Mets 62.5%</strong>
+          </div>
+          <div class="score-chip">6-5</div>
+        </div>
       </div>
       
     <section class="win-panel">
@@ -1388,7 +1421,13 @@
           <p class="game-time">9:40 PM ET</p>
           <p class="lineup-note">Confirmed batting order from MLB Stats because SportsBlaze has not posted lineup data yet.</p>
         </div>
-        <div class="score-chip">5-4</div>
+        <div class="game-header-actions">
+          <div class="winner-chip">
+            <span>Projected Winner</span>
+            <strong>Arizona Diamondbacks 50.1%</strong>
+          </div>
+          <div class="score-chip">5-4</div>
+        </div>
       </div>
       
     <section class="win-panel">
